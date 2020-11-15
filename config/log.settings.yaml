@@ -1,0 +1,30 @@
+---
+  version: 1
+  disable_existing_loggers: false
+  
+  # log formats
+  formatters:
+    default:
+      class: logging.Formatter
+      format: '%(asctime)s.%(msecs)03d %(levelname)-8s %(message)s'
+  
+  # log handlers
+  handlers:
+    console:
+      class: logging.StreamHandler
+      level: DEBUG
+      formatter: default
+    logToFile:
+      class: logging.FileHandler
+      level: INFO
+      formatter: default
+      filename: ./log.log
+  
+  # setup root logger
+  root:
+    handlers:
+      - console
+      - logToFile
+    level: DEBUG
+  
+  

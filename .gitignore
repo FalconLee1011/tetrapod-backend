@@ -1,0 +1,4 @@
+.venv/
+config.yaml
+Pipfile.lock
+__pycache__

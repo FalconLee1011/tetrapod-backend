@@ -1,0 +1,1223 @@
+2020-11-19 21:18:56,017.017 INFO     [THIS IS A DRILL!!]info!
+2020-11-19 21:18:56,017.017 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-19 21:18:56,017.017 ERROR    [THIS IS A DRILL!!]error!
+2020-11-19 21:18:56,017.017 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-19 21:18:56,017.017 INFO     [init] Logging
+2020-11-19 21:18:56,018.018 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-19 21:18:56,019.019 INFO     [init] Connected!
+2020-11-19 21:19:28,452.452 INFO     [THIS IS A DRILL!!]info!
+2020-11-19 21:19:28,452.452 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-19 21:19:28,452.452 ERROR    [THIS IS A DRILL!!]error!
+2020-11-19 21:19:28,452.452 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-19 21:19:28,452.452 INFO     [init] Logging
+2020-11-19 21:19:28,453.453 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-19 21:19:28,454.454 INFO     [init] Connected!
+2020-11-19 21:19:28,454.454 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-19 21:19:28,455.455 INFO      * Restarting with stat
+2020-11-19 21:19:28,579.579 INFO     [THIS IS A DRILL!!]info!
+2020-11-19 21:19:28,579.579 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-19 21:19:28,579.579 ERROR    [THIS IS A DRILL!!]error!
+2020-11-19 21:19:28,579.579 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-19 21:19:28,579.579 INFO     [init] Logging
+2020-11-19 21:19:28,579.579 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-19 21:19:28,580.580 INFO     [init] Connected!
+2020-11-19 21:19:28,580.580 WARNING   * Debugger is active!
+2020-11-19 21:19:28,581.581 INFO      * Debugger PIN: 250-232-502
+2020-11-19 21:21:13,769.769 INFO     [THIS IS A DRILL!!]info!
+2020-11-19 21:21:13,769.769 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-19 21:21:13,769.769 ERROR    [THIS IS A DRILL!!]error!
+2020-11-19 21:21:13,769.769 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-19 21:21:13,769.769 INFO     [init] Logging
+2020-11-19 21:21:13,769.769 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-19 21:21:13,770.770 INFO     [init] Connected!
+2020-11-19 21:21:13,771.771 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-19 21:21:13,771.771 INFO      * Restarting with stat
+2020-11-19 21:21:13,891.891 INFO     [THIS IS A DRILL!!]info!
+2020-11-19 21:21:13,891.891 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-19 21:21:13,891.891 ERROR    [THIS IS A DRILL!!]error!
+2020-11-19 21:21:13,891.891 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-19 21:21:13,891.891 INFO     [init] Logging
+2020-11-19 21:21:13,892.892 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-19 21:21:13,893.893 INFO     [init] Connected!
+2020-11-19 21:21:13,893.893 WARNING   * Debugger is active!
+2020-11-19 21:21:13,893.893 INFO      * Debugger PIN: 250-232-502
+2020-11-19 21:21:36,063.063 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/app.py', reloading
+2020-11-19 21:21:36,108.108 INFO      * Restarting with stat
+2020-11-19 21:21:36,238.238 INFO     [THIS IS A DRILL!!]info!
+2020-11-19 21:21:36,238.238 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-19 21:21:36,238.238 ERROR    [THIS IS A DRILL!!]error!
+2020-11-19 21:21:36,238.238 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-19 21:21:36,238.238 INFO     [init] Logging
+2020-11-19 21:21:36,238.238 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-19 21:21:36,240.240 INFO     [init] Connected!
+2020-11-19 21:21:36,240.240 WARNING   * Debugger is active!
+2020-11-19 21:21:36,240.240 INFO      * Debugger PIN: 250-232-502
+2020-11-19 21:21:46,259.259 INFO     192.168.100.36 - - [19/Nov/2020 21:21:46] "[37mGET /test HTTP/1.1[0m" 200 -
+2020-11-19 21:21:46,439.439 INFO     192.168.100.36 - - [19/Nov/2020 21:21:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2020-11-19 21:21:51,861.861 INFO     192.168.100.36 - - [19/Nov/2020 21:21:51] "[33mGET /connect HTTP/1.1[0m" 404 -
+2020-11-20 16:19:13,651.651 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:19:13,651.651 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:19:13,651.651 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:19:13,651.651 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:19:13,651.651 INFO     [init] Logging
+2020-11-20 16:19:13,652.652 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:19:13,653.653 INFO     [init] Connected!
+2020-11-20 16:19:13,653.653 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-20 16:19:13,654.654 INFO      * Restarting with stat
+2020-11-20 16:19:13,778.778 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:19:13,778.778 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:19:13,778.778 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:19:13,778.778 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:19:13,779.779 INFO     [init] Logging
+2020-11-20 16:19:13,779.779 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:19:13,780.780 INFO     [init] Connected!
+2020-11-20 16:19:13,780.780 WARNING   * Debugger is active!
+2020-11-20 16:19:13,781.781 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:25:11,907.907 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/connection.py', reloading
+2020-11-20 16:25:11,942.942 INFO      * Restarting with stat
+2020-11-20 16:25:12,081.081 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:25:12,081.081 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:25:12,081.081 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:25:12,081.081 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:25:12,081.081 INFO     [init] Logging
+2020-11-20 16:25:12,081.081 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:25:12,083.083 INFO     [init] Connected!
+2020-11-20 16:25:12,083.083 WARNING   * Debugger is active!
+2020-11-20 16:25:12,083.083 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:35:21,368.368 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:35:21,368.368 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:35:21,368.368 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:35:21,368.368 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:35:21,368.368 INFO     [init] Logging
+2020-11-20 16:35:21,369.369 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:35:21,370.370 INFO     [init] Connected!
+2020-11-20 16:35:21,370.370 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-20 16:35:21,371.371 INFO      * Restarting with stat
+2020-11-20 16:35:21,492.492 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:35:21,492.492 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:35:21,492.492 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:35:21,492.492 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:35:21,492.492 INFO     [init] Logging
+2020-11-20 16:35:21,492.492 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:35:21,493.493 INFO     [init] Connected!
+2020-11-20 16:35:21,494.494 WARNING   * Debugger is active!
+2020-11-20 16:35:21,494.494 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:35:27,362.362 INFO     127.0.0.1 - - [20/Nov/2020 16:35:27] "[33mGET / HTTP/1.1[0m" 404 -
+2020-11-20 16:35:27,598.598 INFO     127.0.0.1 - - [20/Nov/2020 16:35:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2020-11-20 16:35:32,097.097 INFO     127.0.0.1 - - [20/Nov/2020 16:35:32] "[33mGET /test2 HTTP/1.1[0m" 404 -
+2020-11-20 16:35:58,719.719 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/app.py', reloading
+2020-11-20 16:35:58,750.750 INFO      * Restarting with stat
+2020-11-20 16:36:42,729.729 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:36:42,729.729 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:36:42,729.729 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:36:42,729.729 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:36:42,729.729 INFO     [init] Logging
+2020-11-20 16:36:42,729.729 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:36:42,730.730 INFO     [init] Connected!
+2020-11-20 16:36:42,731.731 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-20 16:36:42,731.731 INFO      * Restarting with stat
+2020-11-20 16:36:42,855.855 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:36:42,855.855 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:36:42,855.855 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:36:42,855.855 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:36:42,855.855 INFO     [init] Logging
+2020-11-20 16:36:42,856.856 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:36:42,857.857 INFO     [init] Connected!
+2020-11-20 16:36:42,857.857 WARNING   * Debugger is active!
+2020-11-20 16:36:42,857.857 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:36:47,404.404 INFO     127.0.0.1 - - [20/Nov/2020 16:36:47] "[37mGET /test HTTP/1.1[0m" 200 -
+2020-11-20 16:36:49,857.857 INFO     127.0.0.1 - - [20/Nov/2020 16:36:49] "[33mGET /test2 HTTP/1.1[0m" 404 -
+2020-11-20 16:37:05,002.002 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/__main__.py', reloading
+2020-11-20 16:37:05,028.028 INFO      * Restarting with stat
+2020-11-20 16:37:05,150.150 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:37:05,150.150 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:37:05,150.150 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:37:05,150.150 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:37:05,151.151 INFO     [init] Logging
+2020-11-20 16:37:05,151.151 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:37:05,153.153 INFO     [init] Connected!
+2020-11-20 16:37:05,153.153 WARNING   * Debugger is active!
+2020-11-20 16:37:05,153.153 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:37:08,512.512 INFO     127.0.0.1 - - [20/Nov/2020 16:37:08] "[37mGET /test2 HTTP/1.1[0m" 200 -
+2020-11-20 16:37:42,394.394 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/__main__.py', reloading
+2020-11-20 16:37:42,410.410 INFO      * Restarting with stat
+2020-11-20 16:37:42,534.534 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:37:42,534.534 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:37:42,534.534 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:37:42,534.534 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:37:42,534.534 INFO     [init] Logging
+2020-11-20 16:37:42,535.535 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:37:42,536.536 INFO     [init] Connected!
+2020-11-20 16:37:42,536.536 WARNING   * Debugger is active!
+2020-11-20 16:37:42,536.536 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:37:45,558.558 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-20 16:37:45,574.574 INFO      * Restarting with stat
+2020-11-20 16:37:45,696.696 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:37:45,696.696 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:37:45,696.696 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:37:45,696.696 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:37:45,696.696 INFO     [init] Logging
+2020-11-20 16:37:45,697.697 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:37:45,698.698 INFO     [init] Connected!
+2020-11-20 16:37:45,698.698 WARNING   * Debugger is active!
+2020-11-20 16:37:45,698.698 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:37:47,709.709 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-20 16:37:47,747.747 INFO      * Restarting with stat
+2020-11-20 16:37:47,876.876 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:37:47,876.876 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:37:47,877.877 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:37:47,877.877 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:37:47,877.877 INFO     [init] Logging
+2020-11-20 16:37:47,877.877 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:37:47,878.878 INFO     [init] Connected!
+2020-11-20 16:37:47,878.878 WARNING   * Debugger is active!
+2020-11-20 16:37:47,879.879 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:37:54,917.917 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-20 16:37:54,934.934 INFO      * Restarting with stat
+2020-11-20 16:37:55,056.056 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:37:55,056.056 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:37:55,056.056 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:37:55,056.056 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:37:55,056.056 INFO     [init] Logging
+2020-11-20 16:37:55,057.057 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:37:55,058.058 INFO     [init] Connected!
+2020-11-20 16:37:55,058.058 WARNING   * Debugger is active!
+2020-11-20 16:37:55,058.058 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:37:57,153.153 INFO     127.0.0.1 - - [20/Nov/2020 16:37:57] "[37mGET /test2 HTTP/1.1[0m" 200 -
+2020-11-20 16:37:58,414.414 INFO     127.0.0.1 - - [20/Nov/2020 16:37:58] "[37mGET /test22 HTTP/1.1[0m" 200 -
+2020-11-20 16:38:07,150.150 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/__main__.py', reloading
+2020-11-20 16:38:07,190.190 INFO      * Restarting with stat
+2020-11-20 16:38:07,270.270 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:38:07,270.270 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:38:07,270.270 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:38:07,270.270 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:38:07,270.270 INFO     [init] Logging
+2020-11-20 16:38:07,270.270 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:38:07,271.271 INFO     [init] Connected!
+2020-11-20 16:38:14,081.081 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:38:14,081.081 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:38:14,081.081 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:38:14,081.081 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:38:14,081.081 INFO     [init] Logging
+2020-11-20 16:38:14,082.082 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:38:14,083.083 INFO     [init] Connected!
+2020-11-20 16:38:25,643.643 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:38:25,643.643 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:38:25,643.643 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:38:25,644.644 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:38:25,644.644 INFO     [init] Logging
+2020-11-20 16:38:25,644.644 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:38:25,646.646 INFO     [init] Connected!
+2020-11-20 16:38:52,050.050 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:38:52,050.050 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:38:52,050.050 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:38:52,050.050 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:38:52,050.050 INFO     [init] Logging
+2020-11-20 16:38:52,050.050 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:38:52,052.052 INFO     [init] Connected!
+2020-11-20 16:45:28,171.171 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:45:28,171.171 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:45:28,171.171 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:45:28,171.171 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:45:28,171.171 INFO     [init] Logging
+2020-11-20 16:45:28,172.172 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:45:28,173.173 INFO     [init] Connected!
+2020-11-20 16:45:28,173.173 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-20 16:45:28,173.173 INFO      * Restarting with stat
+2020-11-20 16:45:28,294.294 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:45:28,294.294 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:45:28,294.294 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:45:28,294.294 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:45:28,294.294 INFO     [init] Logging
+2020-11-20 16:45:28,295.295 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:45:28,296.296 INFO     [init] Connected!
+2020-11-20 16:45:28,296.296 WARNING   * Debugger is active!
+2020-11-20 16:45:28,296.296 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:46:10,766.766 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:46:10,766.766 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:46:10,766.766 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:46:10,766.766 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:46:10,766.766 INFO     [init] Logging
+2020-11-20 16:46:10,767.767 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:46:10,768.768 INFO     [init] Connected!
+2020-11-20 16:46:10,768.768 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-20 16:46:10,768.768 INFO      * Restarting with stat
+2020-11-20 16:46:10,897.897 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:46:10,897.897 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:46:10,897.897 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:46:10,897.897 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:46:10,897.897 INFO     [init] Logging
+2020-11-20 16:46:10,897.897 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:46:10,898.898 INFO     [init] Connected!
+2020-11-20 16:46:10,899.899 WARNING   * Debugger is active!
+2020-11-20 16:46:10,899.899 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:46:20,986.986 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/fuck/fuck.py', reloading
+2020-11-20 16:46:21,027.027 INFO      * Restarting with stat
+2020-11-20 16:46:21,157.157 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:46:21,157.157 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:46:21,157.157 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:46:21,157.157 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:46:21,157.157 INFO     [init] Logging
+2020-11-20 16:46:21,158.158 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:46:21,159.159 INFO     [init] Connected!
+2020-11-20 16:46:21,159.159 WARNING   * Debugger is active!
+2020-11-20 16:46:21,159.159 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:46:22,918.918 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:46:22,918.918 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:46:22,918.918 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:46:22,918.918 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:46:22,918.918 INFO     [init] Logging
+2020-11-20 16:46:22,918.918 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:46:22,919.919 INFO     [init] Connected!
+2020-11-20 16:46:22,920.920 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-20 16:46:22,920.920 INFO      * Restarting with stat
+2020-11-20 16:46:23,043.043 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:46:23,043.043 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:46:23,043.043 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:46:23,043.043 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:46:23,043.043 INFO     [init] Logging
+2020-11-20 16:46:23,043.043 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:46:23,044.044 INFO     [init] Connected!
+2020-11-20 16:46:23,045.045 WARNING   * Debugger is active!
+2020-11-20 16:46:23,045.045 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:46:30,078.078 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/__main__.py', reloading
+2020-11-20 16:46:30,098.098 INFO      * Restarting with stat
+2020-11-20 16:46:30,228.228 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:46:30,228.228 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:46:30,228.228 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:46:30,228.228 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:46:30,228.228 INFO     [init] Logging
+2020-11-20 16:46:30,228.228 WARNING  [FUCK] FUCK
+2020-11-20 16:46:30,229.229 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:46:30,230.230 INFO     [init] Connected!
+2020-11-20 16:46:30,230.230 WARNING   * Debugger is active!
+2020-11-20 16:46:30,230.230 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:46:40,659.659 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:46:40,659.659 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:46:40,659.659 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:46:40,659.659 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:46:40,659.659 INFO     [init] Logging
+2020-11-20 16:46:40,659.659 WARNING  [FUCK] FUCK
+2020-11-20 16:46:40,659.659 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:46:40,660.660 INFO     [init] Connected!
+2020-11-20 16:46:40,661.661 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-20 16:46:40,661.661 INFO      * Restarting with stat
+2020-11-20 16:46:40,785.785 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:46:40,786.786 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:46:40,786.786 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:46:40,786.786 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:46:40,786.786 INFO     [init] Logging
+2020-11-20 16:46:40,786.786 WARNING  [FUCK] FUCK
+2020-11-20 16:46:40,786.786 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 16:46:40,787.787 INFO     [init] Connected!
+2020-11-20 16:46:40,787.787 WARNING   * Debugger is active!
+2020-11-20 16:46:40,788.788 INFO      * Debugger PIN: 250-232-502
+2020-11-20 16:47:13,017.017 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/__main__.py', reloading
+2020-11-20 16:47:13,062.062 INFO      * Restarting with stat
+2020-11-20 16:47:13,194.194 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:47:13,194.194 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:47:13,194.194 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:47:13,194.194 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:47:13,194.194 INFO     [init] Logging
+2020-11-20 16:47:18,052.052 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 16:47:18,052.052 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 16:47:18,052.052 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 16:47:18,052.052 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 16:47:18,052.052 INFO     [init] Logging
+2020-11-20 21:11:36,573.573 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 21:11:36,573.573 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 21:11:36,573.573 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 21:11:36,573.573 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 21:11:36,573.573 INFO     [init] Logging
+2020-11-20 21:11:36,574.574 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 21:11:36,576.576 INFO     [init] Connected!
+2020-11-20 21:11:36,576.576 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-20 21:11:36,577.577 INFO      * Restarting with stat
+2020-11-20 21:11:36,699.699 INFO     [THIS IS A DRILL!!]info!
+2020-11-20 21:11:36,699.699 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-20 21:11:36,700.700 ERROR    [THIS IS A DRILL!!]error!
+2020-11-20 21:11:36,700.700 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-20 21:11:36,700.700 INFO     [init] Logging
+2020-11-20 21:11:36,700.700 INFO     [init] Connecting to mongodb://192.168.100.149:27017/
+2020-11-20 21:11:36,701.701 INFO     [init] Connected!
+2020-11-20 21:11:36,701.701 WARNING   * Debugger is active!
+2020-11-20 21:11:36,702.702 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:26:44,325.325 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:26:44,325.325 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:26:44,325.325 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:26:44,325.325 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:26:44,325.325 INFO     [init] Logging
+2020-11-23 15:26:44,326.326 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:26:44,327.327 INFO     [init] Connected!
+2020-11-23 15:26:44,327.327 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 15:26:44,328.328 INFO      * Restarting with stat
+2020-11-23 15:26:44,450.450 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:26:44,451.451 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:26:44,451.451 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:26:44,451.451 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:26:44,451.451 INFO     [init] Logging
+2020-11-23 15:26:44,451.451 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:26:44,452.452 INFO     [init] Connected!
+2020-11-23 15:26:44,453.453 WARNING   * Debugger is active!
+2020-11-23 15:26:44,453.453 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:28:23,123.123 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:28:23,123.123 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:28:23,123.123 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:28:23,124.124 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:28:23,124.124 INFO     [init] Logging
+2020-11-23 15:28:23,124.124 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:28:23,125.125 INFO     [init] Connected!
+2020-11-23 15:28:23,126.126 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 15:28:23,126.126 INFO      * Restarting with stat
+2020-11-23 15:28:23,250.250 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:28:23,250.250 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:28:23,250.250 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:28:23,250.250 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:28:23,250.250 INFO     [init] Logging
+2020-11-23 15:28:23,251.251 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:28:23,252.252 INFO     [init] Connected!
+2020-11-23 15:28:23,252.252 WARNING   * Debugger is active!
+2020-11-23 15:28:23,252.252 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:29:13,278.278 INFO     127.0.0.1 - - [23/Nov/2020 15:29:13] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:29:46,801.801 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/app.py', reloading
+2020-11-23 15:29:46,819.819 INFO      * Restarting with stat
+2020-11-23 15:30:33,179.179 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:30:33,179.179 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:30:33,179.179 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:30:33,179.179 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:30:33,179.179 INFO     [init] Logging
+2020-11-23 15:30:33,180.180 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:30:33,181.181 INFO     [init] Connected!
+2020-11-23 15:30:33,181.181 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 15:30:33,182.182 INFO      * Restarting with stat
+2020-11-23 15:30:33,305.305 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:30:33,305.305 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:30:33,305.305 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:30:33,305.305 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:30:33,305.305 INFO     [init] Logging
+2020-11-23 15:30:33,306.306 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:30:33,307.307 INFO     [init] Connected!
+2020-11-23 15:30:33,307.307 WARNING   * Debugger is active!
+2020-11-23 15:30:33,307.307 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:30:35,827.827 INFO     inserting... 1
+2020-11-23 15:30:35,827.827 INFO     {'msg': 'hello!'}
+2020-11-23 15:30:35,832.832 INFO     127.0.0.1 - - [23/Nov/2020 15:30:35] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:31:54,482.482 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:31:54,482.482 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:31:54,482.482 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:31:54,482.482 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:31:54,482.482 INFO     [init] Logging
+2020-11-23 15:31:54,483.483 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:31:54,484.484 INFO     [init] Connected!
+2020-11-23 15:31:54,485.485 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 15:31:54,485.485 INFO      * Restarting with stat
+2020-11-23 15:31:54,607.607 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:31:54,607.607 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:31:54,607.607 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:31:54,607.607 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:31:54,607.607 INFO     [init] Logging
+2020-11-23 15:31:54,608.608 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:31:54,609.609 INFO     [init] Connected!
+2020-11-23 15:31:54,609.609 WARNING   * Debugger is active!
+2020-11-23 15:31:54,609.609 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:32:14,711.711 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/__main__.py', reloading
+2020-11-23 15:32:14,729.729 INFO      * Restarting with stat
+2020-11-23 15:32:14,788.788 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:32:14,788.788 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:32:14,788.788 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:32:14,788.788 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:32:14,788.788 INFO     [init] Logging
+2020-11-23 15:32:14,788.788 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:32:14,789.789 INFO     [init] Connected!
+2020-11-23 15:32:18,106.106 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:32:18,106.106 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:32:18,106.106 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:32:18,106.106 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:32:18,106.106 INFO     [init] Logging
+2020-11-23 15:32:18,107.107 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:32:18,108.108 INFO     [init] Connected!
+2020-11-23 15:32:18,172.172 INFO     Server initialized for threading.
+2020-11-23 15:32:18,173.173 INFO     [init] test model
+2020-11-23 15:32:28,754.754 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:32:28,754.754 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:32:28,754.754 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:32:28,754.754 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:32:28,754.754 INFO     [init] Logging
+2020-11-23 15:32:28,755.755 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:32:28,757.757 INFO     [init] Connected!
+2020-11-23 15:32:28,757.757 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 15:32:28,758.758 INFO      * Restarting with stat
+2020-11-23 15:32:28,884.884 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:32:28,884.884 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:32:28,884.884 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:32:28,884.884 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:32:28,884.884 INFO     [init] Logging
+2020-11-23 15:32:28,885.885 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:32:28,886.886 INFO     [init] Connected!
+2020-11-23 15:32:28,886.886 WARNING   * Debugger is active!
+2020-11-23 15:32:28,886.886 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:32:32,922.922 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/session.py', reloading
+2020-11-23 15:32:32,964.964 INFO      * Restarting with stat
+2020-11-23 15:37:51,220.220 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:37:51,220.220 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:37:51,220.220 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:37:51,220.220 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:37:51,220.220 INFO     [init] Logging
+2020-11-23 15:37:51,221.221 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:37:51,222.222 INFO     [init] Connected!
+2020-11-23 15:37:51,222.222 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 15:37:51,222.222 INFO      * Restarting with stat
+2020-11-23 15:37:51,348.348 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:37:51,348.348 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:37:51,348.348 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:37:51,348.348 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:37:51,348.348 INFO     [init] Logging
+2020-11-23 15:37:51,348.348 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:37:51,349.349 INFO     [init] Connected!
+2020-11-23 15:37:51,350.350 WARNING   * Debugger is active!
+2020-11-23 15:37:51,350.350 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:37:54,015.015 INFO     [init] test model
+2020-11-23 15:37:54,016.016 INFO     inserting... 1
+2020-11-23 15:37:54,016.016 INFO     {'msg': 'hello!'}
+2020-11-23 15:37:54,039.039 INFO     127.0.0.1 - - [23/Nov/2020 15:37:54] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:40:39,395.395 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/session.py', reloading
+2020-11-23 15:40:39,411.411 INFO      * Restarting with stat
+2020-11-23 15:40:39,537.537 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:40:39,537.537 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:40:39,537.537 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:40:39,537.537 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:40:39,537.537 INFO     [init] Logging
+2020-11-23 15:40:39,538.538 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:40:39,539.539 INFO     [init] Connected!
+2020-11-23 15:40:39,539.539 WARNING   * Debugger is active!
+2020-11-23 15:40:39,539.539 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:40:42,588.588 INFO     [init] test model
+2020-11-23 15:40:42,593.593 INFO     127.0.0.1 - - [23/Nov/2020 15:40:42] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:41:19,837.837 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/session.py', reloading
+2020-11-23 15:41:19,856.856 INFO      * Restarting with stat
+2020-11-23 15:41:25,504.504 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:41:25,505.505 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:41:25,505.505 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:41:25,505.505 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:41:25,505.505 INFO     [init] Logging
+2020-11-23 15:41:25,505.505 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:41:25,507.507 INFO     [init] Connected!
+2020-11-23 15:41:25,507.507 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 15:41:25,507.507 INFO      * Restarting with stat
+2020-11-23 15:41:25,629.629 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:41:25,629.629 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:41:25,629.629 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:41:25,630.630 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:41:25,630.630 INFO     [init] Logging
+2020-11-23 15:41:25,630.630 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:41:25,631.631 INFO     [init] Connected!
+2020-11-23 15:41:25,632.632 WARNING   * Debugger is active!
+2020-11-23 15:41:25,632.632 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:41:28,957.957 INFO     [init] test model
+2020-11-23 15:41:28,968.968 INFO     127.0.0.1 - - [23/Nov/2020 15:41:28] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:41:56,830.830 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/session.py', reloading
+2020-11-23 15:41:56,848.848 INFO      * Restarting with stat
+2020-11-23 15:41:56,969.969 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:41:56,969.969 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:41:56,969.969 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:41:56,969.969 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:41:56,969.969 INFO     [init] Logging
+2020-11-23 15:41:56,970.970 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:41:56,971.971 INFO     [init] Connected!
+2020-11-23 15:41:56,971.971 WARNING   * Debugger is active!
+2020-11-23 15:41:56,972.972 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:42:05,026.026 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/session.py', reloading
+2020-11-23 15:42:05,071.071 INFO      * Restarting with stat
+2020-11-23 15:42:05,208.208 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:42:05,208.208 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:42:05,208.208 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:42:05,208.208 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:42:05,208.208 INFO     [init] Logging
+2020-11-23 15:42:05,209.209 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:42:05,211.211 INFO     [init] Connected!
+2020-11-23 15:42:05,211.211 WARNING   * Debugger is active!
+2020-11-23 15:42:05,211.211 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:42:08,782.782 INFO     [init] test model
+2020-11-23 15:42:08,787.787 INFO     127.0.0.1 - - [23/Nov/2020 15:42:08] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:43:38,814.814 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/connection.py', reloading
+2020-11-23 15:43:38,840.840 INFO      * Restarting with stat
+2020-11-23 15:43:38,969.969 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:43:38,969.969 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:43:38,969.969 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:43:38,969.969 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:43:38,969.969 INFO     [init] Logging
+2020-11-23 15:43:38,970.970 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:43:38,971.971 INFO     [init] Connected!
+2020-11-23 15:43:38,971.971 WARNING   * Debugger is active!
+2020-11-23 15:43:38,971.971 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:43:42,449.449 INFO     [init] test model
+2020-11-23 15:43:42,455.455 INFO     127.0.0.1 - - [23/Nov/2020 15:43:42] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:44:11,200.200 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/session.py', reloading
+2020-11-23 15:44:11,546.546 INFO      * Restarting with stat
+2020-11-23 15:44:11,683.683 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:44:11,683.683 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:44:11,683.683 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:44:11,683.683 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:44:11,683.683 INFO     [init] Logging
+2020-11-23 15:44:11,683.683 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:44:11,685.685 INFO     [init] Connected!
+2020-11-23 15:44:11,685.685 WARNING   * Debugger is active!
+2020-11-23 15:44:11,685.685 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:44:11,724.724 INFO     [init] test model
+2020-11-23 15:44:11,729.729 INFO     127.0.0.1 - - [23/Nov/2020 15:44:11] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:44:17,728.728 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/session.py', reloading
+2020-11-23 15:44:18,243.243 INFO      * Restarting with stat
+2020-11-23 15:44:18,370.370 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:44:18,370.370 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:44:18,370.370 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:44:18,370.370 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:44:18,370.370 INFO     [init] Logging
+2020-11-23 15:44:18,371.371 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:44:18,372.372 INFO     [init] Connected!
+2020-11-23 15:44:18,373.373 WARNING   * Debugger is active!
+2020-11-23 15:44:18,373.373 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:44:18,374.374 INFO     [init] test model
+2020-11-23 15:44:18,375.375 INFO     inserting... 1
+2020-11-23 15:44:18,375.375 INFO     {'msg': 'hello!'}
+2020-11-23 15:44:18,380.380 INFO     127.0.0.1 - - [23/Nov/2020 15:44:18] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:44:24,416.416 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/session.py', reloading
+2020-11-23 15:44:24,899.899 INFO      * Restarting with stat
+2020-11-23 15:44:25,023.023 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:44:25,024.024 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:44:25,024.024 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:44:25,024.024 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:44:25,024.024 INFO     [init] Logging
+2020-11-23 15:44:25,024.024 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:44:25,025.025 INFO     [init] Connected!
+2020-11-23 15:44:25,025.025 WARNING   * Debugger is active!
+2020-11-23 15:44:25,026.026 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:45:04,186.186 INFO     [init] test model
+2020-11-23 15:45:04,186.186 INFO     inserting... 1
+2020-11-23 15:45:04,187.187 INFO     {'msg': 'hello!'}
+2020-11-23 15:45:04,204.204 INFO     127.0.0.1 - - [23/Nov/2020 15:45:04] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:45:14,926.926 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:45:14,926.926 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:45:14,926.926 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:45:14,926.926 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:45:14,926.926 INFO     [init] Logging
+2020-11-23 15:45:14,927.927 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:45:14,928.928 INFO     [init] Connected!
+2020-11-23 15:45:14,928.928 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 15:45:14,929.929 INFO      * Restarting with stat
+2020-11-23 15:45:15,054.054 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:45:15,054.054 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:45:15,054.054 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:45:15,054.054 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:45:15,054.054 INFO     [init] Logging
+2020-11-23 15:45:15,055.055 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:45:15,056.056 INFO     [init] Connected!
+2020-11-23 15:45:15,056.056 WARNING   * Debugger is active!
+2020-11-23 15:45:15,056.056 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:46:11,427.427 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/model.py', reloading
+2020-11-23 15:46:11,642.642 INFO      * Restarting with stat
+2020-11-23 15:46:11,765.765 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:46:11,765.765 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:46:11,765.765 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:46:11,765.765 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:46:11,765.765 INFO     [init] Logging
+2020-11-23 15:46:11,765.765 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:46:11,767.767 INFO     [init] Connected!
+2020-11-23 15:46:11,767.767 WARNING   * Debugger is active!
+2020-11-23 15:46:11,767.767 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:46:14,269.269 INFO     [init] test model
+2020-11-23 15:46:14,270.270 INFO     inserting... 1
+2020-11-23 15:46:14,270.270 INFO     {'msg': 'hello!'}
+2020-11-23 15:46:14,272.272 INFO     127.0.0.1 - - [23/Nov/2020 15:46:14] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 15:46:38,930.930 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:46:39,350.350 INFO      * Restarting with stat
+2020-11-23 15:46:39,494.494 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:46:39,494.494 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:46:39,494.494 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:46:39,494.494 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:46:39,494.494 INFO     [init] Logging
+2020-11-23 15:46:39,495.495 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:46:39,496.496 INFO     [init] Connected!
+2020-11-23 15:46:39,496.496 WARNING   * Debugger is active!
+2020-11-23 15:46:39,496.496 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:46:39,537.537 INFO     [init] test model
+2020-11-23 15:46:39,537.537 INFO     inserting... 1
+2020-11-23 15:46:39,537.537 INFO     {'msg': 'hello!'}
+2020-11-23 15:46:39,545.545 INFO     127.0.0.1 - - [23/Nov/2020 15:46:39] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:46:46,545.545 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:46:47,024.024 INFO      * Restarting with stat
+2020-11-23 15:46:47,147.147 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:46:47,147.147 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:46:47,148.148 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:46:47,148.148 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:46:47,148.148 INFO     [init] Logging
+2020-11-23 15:46:47,148.148 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:46:47,149.149 INFO     [init] Connected!
+2020-11-23 15:46:47,149.149 WARNING   * Debugger is active!
+2020-11-23 15:46:47,149.149 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:46:59,247.247 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/model.py', reloading
+2020-11-23 15:46:59,681.681 INFO      * Restarting with stat
+2020-11-23 15:47:05,840.840 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:47:05,840.840 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:47:05,840.840 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:47:05,840.840 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:47:05,840.840 INFO     [init] Logging
+2020-11-23 15:47:05,840.840 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:47:05,841.841 INFO     [init] Connected!
+2020-11-23 15:47:05,842.842 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 15:47:05,842.842 INFO      * Restarting with stat
+2020-11-23 15:47:05,967.967 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:47:05,967.967 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:47:05,967.967 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:47:05,967.967 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:47:05,967.967 INFO     [init] Logging
+2020-11-23 15:47:05,968.968 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:47:05,969.969 INFO     [init] Connected!
+2020-11-23 15:47:05,969.969 WARNING   * Debugger is active!
+2020-11-23 15:47:05,969.969 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:47:08,256.256 INFO     [init] test model
+2020-11-23 15:47:08,256.256 INFO     inserting... 1
+2020-11-23 15:47:08,256.256 INFO     {'msg': 'hello!'}
+2020-11-23 15:47:08,260.260 INFO     127.0.0.1 - - [23/Nov/2020 15:47:08] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 15:47:15,032.032 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:47:15,336.336 INFO     [init] test model
+2020-11-23 15:47:15,336.336 INFO     inserting... 1
+2020-11-23 15:47:15,336.336 INFO     {'msg': 'hello!'}
+2020-11-23 15:47:15,337.337 INFO     127.0.0.1 - - [23/Nov/2020 15:47:15] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 15:47:18,054.054 INFO      * Restarting with stat
+2020-11-23 15:47:18,177.177 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:47:18,177.177 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:47:18,177.177 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:47:18,178.178 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:47:18,178.178 INFO     [init] Logging
+2020-11-23 15:47:18,178.178 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:47:18,179.179 INFO     [init] Connected!
+2020-11-23 15:47:18,179.179 WARNING   * Debugger is active!
+2020-11-23 15:47:18,180.180 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:47:20,687.687 INFO     [init] test model
+2020-11-23 15:47:20,688.688 INFO     inserting... 1
+2020-11-23 15:47:20,688.688 INFO     {'msg': 'hello!'}
+2020-11-23 15:47:20,702.702 INFO     127.0.0.1 - - [23/Nov/2020 15:47:20] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:47:25,218.218 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:47:25,711.711 INFO      * Restarting with stat
+2020-11-23 15:47:25,842.842 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:47:25,842.842 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:47:25,842.842 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:47:25,842.842 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:47:25,842.842 INFO     [init] Logging
+2020-11-23 15:47:25,842.842 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:47:25,843.843 INFO     [init] Connected!
+2020-11-23 15:47:25,844.844 WARNING   * Debugger is active!
+2020-11-23 15:47:25,844.844 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:47:31,877.877 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:47:32,395.395 INFO      * Restarting with stat
+2020-11-23 15:47:32,526.526 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:47:32,526.526 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:47:32,526.526 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:47:32,526.526 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:47:32,526.526 INFO     [init] Logging
+2020-11-23 15:47:32,526.526 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:47:32,527.527 INFO     [init] Connected!
+2020-11-23 15:47:32,528.528 WARNING   * Debugger is active!
+2020-11-23 15:47:32,528.528 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:47:33,538.538 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:47:34,050.050 INFO      * Restarting with stat
+2020-11-23 15:47:34,185.185 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:47:34,185.185 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:47:34,185.185 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:47:34,185.185 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:47:34,185.185 INFO     [init] Logging
+2020-11-23 15:47:34,186.186 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:47:34,187.187 INFO     [init] Connected!
+2020-11-23 15:47:34,187.187 WARNING   * Debugger is active!
+2020-11-23 15:47:34,187.187 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:47:37,067.067 INFO     [init] test model
+2020-11-23 15:47:37,067.067 INFO     inserting... 1
+2020-11-23 15:47:37,067.067 INFO     {'msg': 'hello!'}
+2020-11-23 15:47:37,071.071 INFO     127.0.0.1 - - [23/Nov/2020 15:47:37] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 15:47:38,298.298 INFO     [init] test model
+2020-11-23 15:47:38,298.298 INFO     inserting... 1
+2020-11-23 15:47:38,299.299 INFO     {'msg': 'hello!'}
+2020-11-23 15:47:38,300.300 INFO     127.0.0.1 - - [23/Nov/2020 15:47:38] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 15:47:55,320.320 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:47:55,756.756 INFO      * Restarting with stat
+2020-11-23 15:47:55,898.898 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:47:55,898.898 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:47:55,898.898 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:47:55,898.898 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:47:55,898.898 INFO     [init] Logging
+2020-11-23 15:47:55,899.899 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:47:55,900.900 INFO     [init] Connected!
+2020-11-23 15:47:55,900.900 WARNING   * Debugger is active!
+2020-11-23 15:47:55,900.900 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:47:57,282.282 INFO     [init] test model
+2020-11-23 15:47:57,282.282 INFO     inserting... 1
+2020-11-23 15:47:57,282.282 INFO     {'msg': 'hello!'}
+2020-11-23 15:47:57,284.284 INFO     127.0.0.1 - - [23/Nov/2020 15:47:57] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 15:49:05,358.358 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-23 15:49:05,505.505 INFO      * Restarting with stat
+2020-11-23 15:49:10,678.678 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:49:10,678.678 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:49:10,678.678 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:49:10,678.678 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:49:10,678.678 INFO     [init] Logging
+2020-11-23 15:49:10,679.679 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:49:10,680.680 INFO     [init] Connected!
+2020-11-23 15:49:10,680.680 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 15:49:10,681.681 INFO      * Restarting with stat
+2020-11-23 15:49:10,808.808 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:49:10,808.808 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:49:10,808.808 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:49:10,808.808 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:49:10,808.808 INFO     [init] Logging
+2020-11-23 15:49:10,808.808 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:49:10,810.810 INFO     [init] Connected!
+2020-11-23 15:49:10,810.810 WARNING   * Debugger is active!
+2020-11-23 15:49:10,810.810 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:49:13,433.433 INFO     [init] test model
+2020-11-23 15:49:13,434.434 INFO     inserting... 1
+2020-11-23 15:49:13,434.434 INFO     {'msg': 'hello!'}
+2020-11-23 15:49:16,737.737 INFO     127.0.0.1 - - [23/Nov/2020 15:49:16] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 15:51:16,596.596 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:51:16,985.985 INFO      * Restarting with stat
+2020-11-23 15:51:17,115.115 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:51:17,115.115 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:51:17,115.115 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:51:17,115.115 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:51:17,115.115 INFO     [init] Logging
+2020-11-23 15:51:17,115.115 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:51:17,116.116 INFO     [init] Connected!
+2020-11-23 15:51:17,117.117 WARNING   * Debugger is active!
+2020-11-23 15:51:17,117.117 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:51:52,361.361 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:51:52,700.700 INFO      * Restarting with stat
+2020-11-23 15:51:52,835.835 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:51:52,835.835 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:51:52,835.835 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:51:52,835.835 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:51:52,835.835 INFO     [init] Logging
+2020-11-23 15:51:52,836.836 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:51:52,837.837 INFO     [init] Connected!
+2020-11-23 15:51:52,837.837 WARNING   * Debugger is active!
+2020-11-23 15:51:52,838.838 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:51:54,321.321 INFO     [init] test model
+2020-11-23 15:51:54,321.321 INFO     inserting... 1
+2020-11-23 15:51:54,321.321 INFO     {'msg': 'hello!'}
+2020-11-23 15:51:54,323.323 INFO     [ObjectId('5fbb6a1a46c0b4a6645dcd5d')]
+2020-11-23 15:51:54,323.323 INFO     127.0.0.1 - - [23/Nov/2020 15:51:54] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 15:52:00,895.895 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:52:01,365.365 INFO      * Restarting with stat
+2020-11-23 15:52:01,490.490 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:52:01,490.490 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:52:01,490.490 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:52:01,490.490 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:52:01,490.490 INFO     [init] Logging
+2020-11-23 15:52:01,491.491 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:52:01,492.492 INFO     [init] Connected!
+2020-11-23 15:52:01,492.492 WARNING   * Debugger is active!
+2020-11-23 15:52:01,492.492 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:52:02,108.108 INFO     [init] test model
+2020-11-23 15:52:02,108.108 INFO     inserting... 1
+2020-11-23 15:52:02,108.108 INFO     {'msg': 'hello!'}
+2020-11-23 15:52:02,110.110 INFO     MongoResult(matchedCount=None, documentIds=[ObjectId('5fbb6a22e84afef8e0efa1c2')], modifiedCount=None)
+2020-11-23 15:52:02,111.111 INFO     127.0.0.1 - - [23/Nov/2020 15:52:02] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 15:52:22,630.630 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:52:23,039.039 INFO      * Restarting with stat
+2020-11-23 15:52:23,169.169 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:52:23,169.169 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:52:23,169.169 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:52:23,169.169 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:52:23,169.169 INFO     [init] Logging
+2020-11-23 15:52:23,170.170 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:52:23,171.171 INFO     [init] Connected!
+2020-11-23 15:52:23,171.171 WARNING   * Debugger is active!
+2020-11-23 15:52:23,172.172 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:52:26,029.029 INFO     [init] test model
+2020-11-23 15:52:26,029.029 INFO     inserting... 1
+2020-11-23 15:52:26,029.029 INFO     {'msg': 'hello!'}
+2020-11-23 15:52:26,031.031 INFO     MongoResult(modifiedCount=None, matchedCount=None, documentIds=[ObjectId('5fbb6a3a5109b7c19cc3704b')])
+2020-11-23 15:52:26,031.031 INFO     <tetrapod_backend.db.model.model object at 0x7fa34c750d30>
+2020-11-23 15:52:26,032.032 INFO     127.0.0.1 - - [23/Nov/2020 15:52:26] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 15:52:41,299.299 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:52:41,716.716 INFO      * Restarting with stat
+2020-11-23 15:52:41,841.841 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:52:41,841.841 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:52:41,841.841 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:52:41,841.841 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:52:41,841.841 INFO     [init] Logging
+2020-11-23 15:52:41,842.842 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:52:41,843.843 INFO     [init] Connected!
+2020-11-23 15:52:41,843.843 WARNING   * Debugger is active!
+2020-11-23 15:52:41,843.843 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:53:11,043.043 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-23 15:53:11,416.416 INFO      * Restarting with stat
+2020-11-23 15:53:11,557.557 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:53:11,557.557 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:53:11,557.557 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:53:11,557.557 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:53:11,557.557 INFO     [init] Logging
+2020-11-23 15:53:11,558.558 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:53:11,559.559 INFO     [init] Connected!
+2020-11-23 15:53:11,559.559 WARNING   * Debugger is active!
+2020-11-23 15:53:11,559.559 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:53:16,600.600 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-23 15:53:17,110.110 INFO      * Restarting with stat
+2020-11-23 15:53:17,240.240 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:53:17,240.240 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:53:17,240.240 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:53:17,240.240 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:53:17,240.240 INFO     [init] Logging
+2020-11-23 15:53:17,241.241 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:53:17,242.242 INFO     [init] Connected!
+2020-11-23 15:53:17,242.242 WARNING   * Debugger is active!
+2020-11-23 15:53:17,243.243 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:53:24,279.279 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:53:24,782.782 INFO      * Restarting with stat
+2020-11-23 15:53:24,927.927 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:53:24,927.927 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:53:24,927.927 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:53:24,927.927 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:53:24,927.927 INFO     [init] Logging
+2020-11-23 15:53:24,928.928 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:53:24,929.929 INFO     [init] Connected!
+2020-11-23 15:53:24,929.929 WARNING   * Debugger is active!
+2020-11-23 15:53:24,929.929 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:53:29,965.965 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:53:30,455.455 INFO      * Restarting with stat
+2020-11-23 15:53:30,585.585 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:53:30,585.585 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:53:30,585.585 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:53:30,585.585 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:53:30,585.585 INFO     [init] Logging
+2020-11-23 15:53:30,586.586 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:53:30,587.587 INFO     [init] Connected!
+2020-11-23 15:53:30,587.587 WARNING   * Debugger is active!
+2020-11-23 15:53:30,588.588 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:53:36,641.641 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:53:37,147.147 INFO      * Restarting with stat
+2020-11-23 15:53:37,282.282 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:53:37,282.282 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:53:37,282.282 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:53:37,282.282 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:53:37,282.282 INFO     [init] Logging
+2020-11-23 15:53:37,283.283 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:53:37,284.284 INFO     [init] Connected!
+2020-11-23 15:53:37,284.284 WARNING   * Debugger is active!
+2020-11-23 15:53:37,284.284 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:53:49,390.390 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-23 15:53:49,822.822 INFO      * Restarting with stat
+2020-11-23 15:53:49,951.951 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:53:49,951.951 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:53:49,951.951 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:53:49,951.951 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:53:49,951.951 INFO     [init] Logging
+2020-11-23 15:53:49,952.952 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:53:49,953.953 INFO     [init] Connected!
+2020-11-23 15:53:49,953.953 WARNING   * Debugger is active!
+2020-11-23 15:53:49,953.953 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:53:50,968.968 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-23 15:53:51,503.503 INFO      * Restarting with stat
+2020-11-23 15:53:51,633.633 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:53:51,634.634 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:53:51,634.634 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:53:51,634.634 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:53:51,634.634 INFO     [init] Logging
+2020-11-23 15:53:51,634.634 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:53:51,635.635 INFO     [init] Connected!
+2020-11-23 15:53:51,635.635 WARNING   * Debugger is active!
+2020-11-23 15:53:51,636.636 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:53:58,680.680 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-23 15:53:59,195.195 INFO      * Restarting with stat
+2020-11-23 15:53:59,324.324 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:53:59,324.324 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:53:59,324.324 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:53:59,324.324 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:53:59,324.324 INFO     [init] Logging
+2020-11-23 15:53:59,324.324 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:53:59,326.326 INFO     [init] Connected!
+2020-11-23 15:53:59,326.326 WARNING   * Debugger is active!
+2020-11-23 15:53:59,326.326 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:54:01,342.342 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-23 15:54:01,867.867 INFO      * Restarting with stat
+2020-11-23 15:54:01,990.990 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:54:01,991.991 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:54:01,991.991 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:54:01,991.991 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:54:01,991.991 INFO     [init] Logging
+2020-11-23 15:54:01,991.991 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:54:01,992.992 INFO     [init] Connected!
+2020-11-23 15:54:01,992.992 WARNING   * Debugger is active!
+2020-11-23 15:54:01,993.993 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:54:06,022.022 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:54:06,543.543 INFO      * Restarting with stat
+2020-11-23 15:54:06,677.677 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:54:06,677.677 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:54:06,677.677 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:54:06,677.677 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:54:06,677.677 INFO     [init] Logging
+2020-11-23 15:54:06,678.678 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:54:06,679.679 INFO     [init] Connected!
+2020-11-23 15:54:06,679.679 WARNING   * Debugger is active!
+2020-11-23 15:54:06,679.679 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:54:07,685.685 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 15:54:08,236.236 INFO      * Restarting with stat
+2020-11-23 15:54:08,368.368 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:54:08,368.368 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:54:08,368.368 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:54:08,368.368 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:54:08,368.368 INFO     [init] Logging
+2020-11-23 15:54:08,369.369 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:54:08,371.371 INFO     [init] Connected!
+2020-11-23 15:54:08,371.371 WARNING   * Debugger is active!
+2020-11-23 15:54:08,371.371 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:54:09,380.380 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-23 15:54:09,892.892 INFO      * Restarting with stat
+2020-11-23 15:54:10,019.019 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:54:10,019.019 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:54:10,019.019 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:54:10,019.019 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:54:10,019.019 INFO     [init] Logging
+2020-11-23 15:54:10,020.020 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:54:10,021.021 INFO     [init] Connected!
+2020-11-23 15:54:10,021.021 WARNING   * Debugger is active!
+2020-11-23 15:54:10,021.021 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:55:21,093.093 INFO     [init] test model
+2020-11-23 15:55:21,094.094 INFO     finding...
+2020-11-23 15:55:21,094.094 INFO     {'fish_code': '49001'}
+2020-11-23 15:55:21,096.096 INFO     None
+2020-11-23 15:55:21,097.097 INFO     127.0.0.1 - - [23/Nov/2020 15:55:21] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 15:55:42,745.745 INFO     [init] test model
+2020-11-23 15:55:42,745.745 INFO     finding...
+2020-11-23 15:55:42,745.745 INFO     {'fish_code': '49001'}
+2020-11-23 15:55:42,746.746 INFO     None
+2020-11-23 15:55:42,746.746 INFO     127.0.0.1 - - [23/Nov/2020 15:55:42] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 15:56:19,856.856 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/session.py', reloading
+2020-11-23 15:56:20,190.190 INFO      * Restarting with stat
+2020-11-23 15:56:20,318.318 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:56:20,318.318 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:56:20,318.318 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:56:20,318.318 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:56:20,318.318 INFO     [init] Logging
+2020-11-23 15:56:20,319.319 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:56:20,320.320 INFO     [init] Connected!
+2020-11-23 15:56:20,320.320 WARNING   * Debugger is active!
+2020-11-23 15:56:20,321.321 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:56:22,128.128 INFO     [init] test model
+2020-11-23 15:56:22,134.134 INFO     127.0.0.1 - - [23/Nov/2020 15:56:22] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 15:56:52,512.512 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/session.py', reloading
+2020-11-23 15:56:52,892.892 INFO      * Restarting with stat
+2020-11-23 15:56:55,481.481 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:56:55,481.481 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:56:55,481.481 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:56:55,481.481 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:56:55,481.481 INFO     [init] Logging
+2020-11-23 15:56:55,481.481 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:56:55,482.482 INFO     [init] Connected!
+2020-11-23 15:56:55,483.483 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 15:56:55,483.483 INFO      * Restarting with stat
+2020-11-23 15:56:55,607.607 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 15:56:55,607.607 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 15:56:55,607.607 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 15:56:55,607.607 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 15:56:55,607.607 INFO     [init] Logging
+2020-11-23 15:56:55,608.608 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 15:56:55,609.609 INFO     [init] Connected!
+2020-11-23 15:56:55,609.609 WARNING   * Debugger is active!
+2020-11-23 15:56:55,609.609 INFO      * Debugger PIN: 250-232-502
+2020-11-23 15:56:57,380.380 INFO     [init] test model
+2020-11-23 15:56:57,380.380 INFO     finding...
+2020-11-23 15:56:57,380.380 INFO     {'fish_code': '49001'}
+2020-11-23 15:56:57,395.395 INFO     127.0.0.1 - - [23/Nov/2020 15:56:57] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 16:05:26,523.523 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:05:26,523.523 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:05:26,523.523 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:05:26,523.523 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:05:26,523.523 INFO     [init] Logging
+2020-11-23 16:05:26,524.524 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:05:26,525.525 INFO     [init] Connected!
+2020-11-23 16:05:26,525.525 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 16:05:26,526.526 INFO      * Restarting with stat
+2020-11-23 16:05:26,650.650 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:05:26,650.650 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:05:26,650.650 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:05:26,650.650 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:05:26,650.650 INFO     [init] Logging
+2020-11-23 16:05:26,651.651 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:05:26,652.652 INFO     [init] Connected!
+2020-11-23 16:05:26,652.652 WARNING   * Debugger is active!
+2020-11-23 16:05:26,652.652 INFO      * Debugger PIN: 250-232-502
+2020-11-23 16:08:15,518.518 INFO     [init] test model
+2020-11-23 16:08:15,519.519 INFO     finding...
+2020-11-23 16:08:15,519.519 INFO     {'fish_code': '49001'}
+2020-11-23 16:08:15,524.524 INFO     127.0.0.1 - - [23/Nov/2020 16:08:15] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 16:09:51,371.371 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/model.py', reloading
+2020-11-23 16:09:51,505.505 INFO      * Restarting with stat
+2020-11-23 16:09:51,638.638 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:09:51,638.638 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:09:51,639.639 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:09:51,639.639 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:09:51,639.639 INFO     [init] Logging
+2020-11-23 16:09:51,639.639 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:09:51,640.640 INFO     [init] Connected!
+2020-11-23 16:09:51,641.641 WARNING   * Debugger is active!
+2020-11-23 16:09:51,641.641 INFO      * Debugger PIN: 250-232-502
+2020-11-23 16:09:55,647.647 INFO     [init] test model
+2020-11-23 16:09:55,647.647 INFO     finding...
+2020-11-23 16:09:55,647.647 INFO     {'fish_code': '49001'}
+2020-11-23 16:09:55,652.652 INFO     127.0.0.1 - - [23/Nov/2020 16:09:55] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 16:10:09,753.753 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/model.py', reloading
+2020-11-23 16:10:10,192.192 INFO      * Restarting with stat
+2020-11-23 16:10:10,317.317 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:10:10,317.317 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:10:10,317.317 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:10:10,317.317 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:10:10,317.317 INFO     [init] Logging
+2020-11-23 16:10:10,317.317 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:10:10,319.319 INFO     [init] Connected!
+2020-11-23 16:10:10,319.319 WARNING   * Debugger is active!
+2020-11-23 16:10:10,319.319 INFO      * Debugger PIN: 250-232-502
+2020-11-23 16:10:15,508.508 INFO     [init] test model
+2020-11-23 16:10:15,508.508 INFO     finding...
+2020-11-23 16:10:15,508.508 INFO     {'fish_code': '49001'}
+2020-11-23 16:10:15,517.517 INFO     127.0.0.1 - - [23/Nov/2020 16:10:15] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 16:10:33,431.431 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/session.py', reloading
+2020-11-23 16:10:33,867.867 INFO      * Restarting with stat
+2020-11-23 16:10:33,991.991 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:10:33,991.991 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:10:33,991.991 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:10:33,991.991 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:10:33,991.991 INFO     [init] Logging
+2020-11-23 16:10:33,991.991 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:10:33,993.993 INFO     [init] Connected!
+2020-11-23 16:10:33,993.993 WARNING   * Debugger is active!
+2020-11-23 16:10:33,993.993 INFO      * Debugger PIN: 250-232-502
+2020-11-23 16:10:36,024.024 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/session.py', reloading
+2020-11-23 16:10:36,552.552 INFO      * Restarting with stat
+2020-11-23 16:10:36,678.678 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:10:36,678.678 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:10:36,678.678 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:10:36,678.678 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:10:36,678.678 INFO     [init] Logging
+2020-11-23 16:10:36,679.679 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:10:36,680.680 INFO     [init] Connected!
+2020-11-23 16:10:36,680.680 WARNING   * Debugger is active!
+2020-11-23 16:10:36,680.680 INFO      * Debugger PIN: 250-232-502
+2020-11-23 16:10:38,153.153 INFO     [init] test model
+2020-11-23 16:10:38,158.158 INFO     127.0.0.1 - - [23/Nov/2020 16:10:38] "[35m[1mGET /insert HTTP/1.1[0m" 500 -
+2020-11-23 16:10:55,797.797 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/connection.py', reloading
+2020-11-23 16:10:56,221.221 INFO      * Restarting with stat
+2020-11-23 16:11:05,475.475 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:11:05,476.476 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:11:05,476.476 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:11:05,476.476 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:11:05,476.476 INFO     [init] Logging
+2020-11-23 16:11:05,476.476 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:11:05,477.477 INFO     [init] Connected!
+2020-11-23 16:11:05,478.478 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 16:11:05,478.478 INFO      * Restarting with stat
+2020-11-23 16:11:05,604.604 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:11:05,605.605 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:11:05,605.605 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:11:05,605.605 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:11:05,605.605 INFO     [init] Logging
+2020-11-23 16:11:05,605.605 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:11:05,607.607 INFO     [init] Connected!
+2020-11-23 16:11:05,607.607 WARNING   * Debugger is active!
+2020-11-23 16:11:05,607.607 INFO      * Debugger PIN: 250-232-502
+2020-11-23 16:11:07,166.166 INFO     [init] test model
+2020-11-23 16:11:07,166.166 INFO     finding...
+2020-11-23 16:11:07,166.166 INFO     {'fish_code': '49001'}
+2020-11-23 16:11:07,168.168 INFO     {'_id': ObjectId('5f7b042d0c71660b6bacfcce'), 'fish_area': '三仙台', 'fish_area_id': 'sanxiantai', 'FishType': '鬼頭刀', 'fish_code': '49001', 'year': 2010, 'month': 2, 'Weight': 90.0, 'price': 3160}
+2020-11-23 16:11:07,168.168 INFO     127.0.0.1 - - [23/Nov/2020 16:11:07] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 16:17:43,223.223 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/model.py', reloading
+2020-11-23 16:17:43,605.605 INFO      * Restarting with stat
+2020-11-23 16:17:43,732.732 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:17:43,732.732 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:17:43,732.732 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:17:43,732.732 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:17:43,732.732 INFO     [init] Logging
+2020-11-23 16:17:43,732.732 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:17:43,734.734 INFO     [init] Connected!
+2020-11-23 16:17:43,734.734 WARNING   * Debugger is active!
+2020-11-23 16:17:43,734.734 INFO      * Debugger PIN: 250-232-502
+2020-11-23 16:17:46,755.755 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-23 16:17:47,257.257 INFO      * Restarting with stat
+2020-11-23 16:17:47,381.381 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:17:47,381.381 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:17:47,381.381 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:17:47,381.381 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:17:47,381.381 INFO     [init] Logging
+2020-11-23 16:17:47,381.381 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:17:47,382.382 INFO     [init] Connected!
+2020-11-23 16:17:47,383.383 WARNING   * Debugger is active!
+2020-11-23 16:17:47,383.383 INFO      * Debugger PIN: 250-232-502
+2020-11-23 16:17:55,438.438 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-23 16:17:55,922.922 INFO      * Restarting with stat
+2020-11-23 16:17:56,062.062 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:17:56,062.062 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:17:56,062.062 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:17:56,062.062 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:17:56,062.062 INFO     [init] Logging
+2020-11-23 16:17:56,063.063 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:17:56,064.064 INFO     [init] Connected!
+2020-11-23 16:17:56,064.064 WARNING   * Debugger is active!
+2020-11-23 16:17:56,064.064 INFO      * Debugger PIN: 250-232-502
+2020-11-23 16:18:02,105.105 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/app/testAPI.py', reloading
+2020-11-23 16:18:02,606.606 INFO      * Restarting with stat
+2020-11-23 16:18:02,745.745 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:18:02,745.745 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:18:02,745.745 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:18:02,745.745 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:18:02,745.745 INFO     [init] Logging
+2020-11-23 16:18:02,746.746 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:18:02,747.747 INFO     [init] Connected!
+2020-11-23 16:18:02,747.747 WARNING   * Debugger is active!
+2020-11-23 16:18:02,748.748 INFO      * Debugger PIN: 250-232-502
+2020-11-23 16:18:12,820.820 INFO      * Detected change in '/home/falcon/Projects/software-engineering/tetrapod/tetrapod-backend/tetrapod_backend/db/models/test.py', reloading
+2020-11-23 16:18:13,285.285 INFO      * Restarting with stat
+2020-11-23 16:18:13,410.410 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:18:13,410.410 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:18:13,410.410 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:18:13,410.410 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:18:13,410.410 INFO     [init] Logging
+2020-11-23 16:18:13,411.411 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:18:13,412.412 INFO     [init] Connected!
+2020-11-23 16:18:13,412.412 WARNING   * Debugger is active!
+2020-11-23 16:18:13,412.412 INFO      * Debugger PIN: 250-232-502
+2020-11-23 16:18:16,500.500 INFO     [init] test model
+2020-11-23 16:18:16,500.500 INFO     inserting... 1
+2020-11-23 16:18:16,500.500 INFO     {'msg': 'hello!'}
+2020-11-23 16:18:16,504.504 INFO     MongoResult(modifiedCount=None, documentIds=[ObjectId('5fbb7048429fd8a95329e070')], matchedCount=None)
+2020-11-23 16:18:16,504.504 INFO     127.0.0.1 - - [23/Nov/2020 16:18:16] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 16:18:25,223.223 INFO     [init] test model
+2020-11-23 16:18:25,223.223 INFO     inserting... 1
+2020-11-23 16:18:25,223.223 INFO     {'msg': 'hello!'}
+2020-11-23 16:18:25,224.224 INFO     MongoResult(modifiedCount=None, documentIds=[ObjectId('5fbb7051429fd8a95329e071')], matchedCount=None)
+2020-11-23 16:18:25,224.224 INFO     127.0.0.1 - - [23/Nov/2020 16:18:25] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 16:18:25,921.921 INFO     [init] test model
+2020-11-23 16:18:25,921.921 INFO     inserting... 1
+2020-11-23 16:18:25,921.921 INFO     {'msg': 'hello!'}
+2020-11-23 16:18:25,922.922 INFO     MongoResult(modifiedCount=None, documentIds=[ObjectId('5fbb7051429fd8a95329e072')], matchedCount=None)
+2020-11-23 16:18:25,922.922 INFO     127.0.0.1 - - [23/Nov/2020 16:18:25] "[37mGET /insert HTTP/1.1[0m" 200 -
+2020-11-23 16:25:21,415.415 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:25:21,415.415 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:25:21,415.415 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:25:21,415.415 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:25:21,415.415 INFO     [init] Logging
+2020-11-23 16:25:21,416.416 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:25:21,417.417 INFO     [init] Connected!
+2020-11-23 16:25:21,417.417 INFO      * Running on http://0.0.0.0:9001/ (Press CTRL+C to quit)
+2020-11-23 16:25:21,418.418 INFO      * Restarting with stat
+2020-11-23 16:25:21,543.543 INFO     [THIS IS A DRILL!!]info!
+2020-11-23 16:25:21,544.544 WARNING  [THIS IS A DRILL!!]warning!
+2020-11-23 16:25:21,544.544 ERROR    [THIS IS A DRILL!!]error!
+2020-11-23 16:25:21,544.544 CRITICAL [THIS IS A DRILL!!]critical!
+2020-11-23 16:25:21,544.544 INFO     [init] Logging
+2020-11-23 16:25:21,544.544 INFO     [init] Connecting to mongodb://192.168.100.238:27017/
+2020-11-23 16:25:21,545.545 INFO     [init] Connected!
+2020-11-23 16:25:21,545.545 WARNING   * Debugger is active!
+2020-11-23 16:25:21,546.546 INFO      * Debugger PIN: 250-232-502
+2020-11-23 16:25:22,649.649 INFO     [init] test model
+2020-11-23 16:25:22,650.650 INFO     inserting... 1
+2020-11-23 16:25:22,650.650 INFO     {'msg': 'hello!'}
+2020-11-23 16:25:22,652.652 INFO     MongoResult(modifiedCount=None, matchedCount=None, documentIds=[ObjectId('5fbb71f26e5a155b08d0acca')])
+2020-11-23 16:25:22,653.653 INFO     127.0.0.1 - - [23/Nov/2020 16:25:22] "[37mGET /insert HTTP/1.1[0m" 200 -
