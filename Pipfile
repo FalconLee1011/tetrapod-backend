@@ -6,11 +6,12 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-pymongo = "*"
 pyyaml = "*"
 flask = "*"
 flask-socketio = "*"
 flask-session = "*"
+'pymongo[tls,srv]'= "*"
+PyJWT = "*"
 
 [requires]
 python_version = "3.8"
