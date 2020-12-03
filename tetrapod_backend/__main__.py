@@ -1,5 +1,5 @@
 from .lib import config, log
-from .app import app, testAPI
+from .app import app, testAPI,login
 from .db import connection
 
 CONF = None
