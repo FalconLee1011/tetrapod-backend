@@ -1,32 +1,49 @@
 from ..import model
-import logging
+from ...lib import config
+import logging, jwt
+from functools import wraps
+from flask import request,make_response,jsonify
+
+_LOGGER = logging.getLogger()
+
 class Account:
-    def __init__(self,collection_name):
-        logging.getLogger()._LOGGER.info("[init]Account")
-        self.model = model.model(collection_name)
-    def _get(self,doc):
-        logging.getLogger()._LOGGER.info("getting... ")
-        logging.getLogger()._LOGGER.info(f"{doc}")
+    def __init__(self):
+        _LOGGER.info("[init]Account")
+        self.model = model.model('account')
+    def get(self,doc):
+        _LOGGER.info("getting account... ")
+        _LOGGER.info(f"{doc}")
         user = self.model.find_one(doc)
-        logging.getLogger()._LOGGER.info(user)
+        _LOGGER.info(user)
         return user
 
-    def _update(self,filter,update):
-        logging.getLogger()._LOGGER.info("updating... ")
-        logging.getLogger()._LOGGER.info(f"{filter}")
+    def update(self,filter,update):
+        _LOGGER.info("updating account... ")
+        _LOGGER.info(f"{filter}")
         res = self.model.find_one_and_update(filter,update)
-        logging.getLogger()._LOGGER.info(res)
+        _LOGGER.info(res)
         return 0
 
-    def _validate(self,doc):
-        logging.getLogger()._LOGGER.info("validating... ")
-        logging.getLogger()._LOGGER.info(f"{doc}")
-        return 0
+    def validate(func):
+        @wraps(func)
+        def decorator(*args,**kwargs):
+            token = request.get_json().get('token',None)
+            secret = config.getConfig().get("app",{}).get("secret")
+            _LOGGER.info("validating token... ")
+            _LOGGER.info(token)
+            if token != None and token != '':
+                try:
+                    data = jwt.decode(str.encode(token),secret)
+                    return make_response(jsonify("Token authorized"),200)
+                except:
+                    return make_response(jsonify("Invalid token"),401)
+            return make_response(jsonify("Invalid token"),401)
+        return decorator
 
-    def _new(self,doc):
-        logging.getLogger()._LOGGER.info("inserting... ")
-        logging.getLogger()._LOGGER.info(f"{doc}")
+    def new(self,doc):
+        _LOGGER.info("inserting account... ")
+        _LOGGER.info(f"{doc}")
         res = self.model.insert_one(doc)
-        logging.getLogger()._LOGGER.info(res)
+        _LOGGER.info(res)
         return 0
 
