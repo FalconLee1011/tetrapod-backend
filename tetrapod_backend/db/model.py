@@ -34,8 +34,6 @@ class model:
         )
 
     def update_one(self, mFilter, mUpdate, upsert=True):
-        if not hasUpdateOps(mUpdate):
-            raise MongoException.InvalidUpdateOps(mUpdate)
         mRet = self.collection.update_one(mFilter, mUpdate, upsert=upsert)
         return MongoResult(
             matchedCount=mRet.matched_count,
@@ -44,8 +42,6 @@ class model:
         )
     
     def update_many(self, mFilter, mUpdate, upsert=True):
-        if not hasUpdateOps(mUpdate):
-            raise MongoException.InvalidUpdateOps(mUpdate)
         mRet = self.collection.update_many(mFilter, mUpdate, upsert=upsert)
         return MongoResult(
             matchedCount=mRet.matched_count,
@@ -122,8 +118,6 @@ class model:
         upsert=False,
         returnNewDocument=True,
     ):
-        if not hasUpdateOps(mUpdate):
-            raise MongoException.InvalidUpdateOps(mUpdate)
         return self.collection.find_one_and_update(
             mFilter,
             mUpdate,
