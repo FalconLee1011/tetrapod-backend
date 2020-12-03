@@ -1,6 +1,7 @@
 from .lib import config, log
-from .app import app, testAPI,login
+from .app import app, testAPI, login, register
 from .db import connection
+
 
 CONF = None
 MONGO = None

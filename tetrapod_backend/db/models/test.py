@@ -12,6 +12,6 @@ class test:
     def _insert(self, doc):
         _LOGGER.info("inserting... 1")
         _LOGGER.info(f"{doc}")
-        res = self.model.insert_one(doc);
+        res = self.model.insert_one(doc)
         _LOGGER.info(res)
         return 0
