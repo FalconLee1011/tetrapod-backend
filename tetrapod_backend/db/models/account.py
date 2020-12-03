@@ -3,7 +3,7 @@ from ...lib import config
 import logging, jwt
 from functools import wraps
 from flask import request,make_response,jsonify
-
+from . import token
 _LOGGER = logging.getLogger()
 
 class Account:
@@ -27,13 +27,15 @@ class Account:
     def validate(func):
         @wraps(func)
         def decorator(*args,**kwargs):
-            token = request.get_json().get('token',None)
+            front_token = request.get_json().get('token',None)
+            db_token = token.Token().get({"token":front_token})
             secret = config.getConfig().get("app",{}).get("secret")
             _LOGGER.info("validating token... ")
-            _LOGGER.info(token)
-            if token != None and token != '':
+            if db_token != None and front_token != None and front_token != '' and front_token == db_token.get('token'):
+                _LOGGER.info("Front token: "+front_token)
+                _LOGGER.info("DB token: "+db_token.get('token'))
                 try:
-                    data = jwt.decode(str.encode(token),secret)
+                    data = jwt.decode(str.encode(front_token),secret)
                     return make_response(jsonify("Token authorized"),200)
                 except:
                     return make_response(jsonify("Invalid token"),401)
