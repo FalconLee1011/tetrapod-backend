@@ -36,7 +36,7 @@ class Account:
                 _LOGGER.info("DB token: "+db_token.get('token'))
                 try:
                     data = jwt.decode(str.encode(front_token),secret)
-                    return make_response(jsonify("Token authorized"),200)
+                    return func(*args,**kwargs)
                 except:
                     return make_response(jsonify("Invalid token"),401)
             return make_response(jsonify("Invalid token"),401)
