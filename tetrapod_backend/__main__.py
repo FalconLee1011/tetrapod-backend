@@ -1,5 +1,5 @@
 from .lib import config, log
-from .app import app, testAPI, login, register
+from .app import app, testAPI, login, register, edit_account
 from .db import connection
 
 
