@@ -56,7 +56,7 @@ def _register():
     pattern = "[a-zA-z0-9]*"
     DP = _different_password(_password, _confirm_password)
     LC = _len_check(_password)
-    match = _is_match(_account, pattern)
+    match = _is_match(_password, pattern)
     if DP and LC and match:
         Pass = True
     else:
