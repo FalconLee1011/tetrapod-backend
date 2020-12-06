@@ -2,25 +2,24 @@ from ..db.models import account, token
 from .app import *
 import time, re
 
+def _len_check(s):
+    if len(s) > 5 and len(s) < 21:
+        return True
+    else:
+        return False
+
+def _different_password(str1, str2):
+    if str1 == str2:
+        return True
+    else:
+        return False
+
+def _is_match(s, pat):
+    return re.findall(pat, s)
+
 @app.route("/editaccount",methods=["POST"])
 @account.Account.validate
-def _edit_account(*args,**kwargs):
-    def _len_check(s):
-        if len(s) > 5 and len(s) < 21:
-            return True
-        else:
-            return False
-
-    def _different_password(str1:str, str2:str):
-        match = re.findall(str1, str2)
-        if match:
-            return True
-        else:
-            return False
-
-    def _is_match(s, pat):
-        return re.findall(pat, s)
-
+def _edit_account(*args,**kwargs):    
     data = request.get_json()
     _account_avator = data.get("account_avator","")
     _First_name = data.get("first name","")
@@ -33,6 +32,7 @@ def _edit_account(*args,**kwargs):
     _birth_date = data.get("birth date","")
     _sex = data.get("sex","")
     _token = data.get("token","")
+    account_MODEL = account.Account()
         
     #password check 英數，至少6碼至多20碼
     pattern = "[a-zA-z0-9]*"
@@ -44,9 +44,17 @@ def _edit_account(*args,**kwargs):
         return make_response(jsonify({"status": Err}), 200)
     
     #e-mail check
+    req = account_MODEL.get({"e-mail":_email})
+    if req != None:
+        Pass = False
+        Err = "e-mail already exists"
+        return make_response(jsonify({"status": Err}), 200)
     pattern = r"^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$"
     match = _is_match(_email, pattern)
-    if not match:
+    if match:
+        Pass = True
+    else:
+        Pass = False
         Err = "E-mail format error"
         return make_response(jsonify({"status": Err}), 200)
 
@@ -69,6 +77,5 @@ def _edit_account(*args,**kwargs):
         "birth_date": _birth_date,
         "sex": _sex
     }
-    account_MODEL = account.Account()
     account_req = account_MODEL.update({"account":kwargs["account"]},{"$set":user})
     return make_response(jsonify("edit account success"),200)
