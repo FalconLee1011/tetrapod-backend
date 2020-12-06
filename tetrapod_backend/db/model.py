@@ -1,10 +1,17 @@
 import pymongo, logging
 from .session import *
 from collections import namedtuple
+from datetime import datetime
 
 MongoResult = namedtuple(
     "MongoResult", {"matchedCount", "modifiedCount", "documentIds",}
 )
+
+def _timestamp(key, documents):
+    if(type(documents) == dict): documents[key] = datetime.now()
+    elif(type(documents) == list): 
+        for i, _ in enumerate(documents): documents[i][key] = datetime.now()
+    return documents
 
 class model:
     def __init__(self, collection_name):
@@ -12,6 +19,7 @@ class model:
         self.collection = self.session.get_collection()
 
     def insert_one(self, mDocument):
+        mDocument = _timestamp("_created", mDocument)
         mRet = self.collection.insert_one(mDocument)
         return MongoResult(
             matchedCount=None,
@@ -20,12 +28,14 @@ class model:
         )
 
     def insert_many(self, mDocuments, ordered=True):
+        mDocuments = _timestamp("_created", mDocuments)
         mRet = self.collection.insert_many(mDocuments, ordered=ordered)
         return MongoResult(
             matchedCount=None, modifiedCount=None, documentIds=mRet.inserted_ids,
         )
     
     def replace_one(self, mFilter, mDocument, upsert=False):
+        mDocument = _timestamp("_replaced", mDocument)
         mRet = self.collection.replace_one(mFilter, mDocument, upsert=False)
         return MongoResult(
             matchedCount=mRet.matched_count,
@@ -34,6 +44,7 @@ class model:
         )
 
     def update_one(self, mFilter, mUpdate, upsert=True):
+        mUpdate = _timestamp("_updated", mUpdate)
         mRet = self.collection.update_one(mFilter, mUpdate, upsert=upsert)
         return MongoResult(
             matchedCount=mRet.matched_count,
@@ -42,6 +53,7 @@ class model:
         )
     
     def update_many(self, mFilter, mUpdate, upsert=True):
+        mUpdate = _timestamp("_updated", mUpdate)
         mRet = self.collection.update_many(mFilter, mUpdate, upsert=upsert)
         return MongoResult(
             matchedCount=mRet.matched_count,
@@ -97,6 +109,7 @@ class model:
         mSort=None,
         upsert=False,
     ):
+        mDocument = _timestamp("_updated", mDocument)
         return self.collection.find_one_and_replace(
             mFilter,
             mDocument,
@@ -113,6 +126,7 @@ class model:
         mSort=None,
         upsert=False,
     ):
+        
         return self.collection.find_one_and_update(
             mFilter,
             mUpdate,

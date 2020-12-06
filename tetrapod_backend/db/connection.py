@@ -13,7 +13,9 @@ def connect(config, timeout=3000):
     user = config.get("user")
     pwd = config.get("pass")
     db_name = config.get("db")
-    conn_str = f"mongodb://{user}:{pwd}@{host}:{port}/" if(not(user == None or pwd == None) and not(user == "" or pwd == "")) else f"mongodb://{host}:{port}/"
+    debug = config.get("debug")
+    if(not debug): conn_str = f"mongodb://{user}:{pwd}@{host}:{port}/" if(not(user == None or pwd == None) and not(user == "" or pwd == "")) else f"mongodb://{host}:{port}/"
+    else: conn_str = f"mongodb+srv://{user}:{pwd}@{host}"
     try:
         _LOGGER.info(f"[init] Connecting to {conn_str}")
         MONGO = MongoClient(conn_str, serverSelectionTimeoutMS=timeout)[db_name]
