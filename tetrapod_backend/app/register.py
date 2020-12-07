@@ -13,15 +13,14 @@ def _register():
         else:
             return False
 
-    def _different_password(str1:str, str2:str):
-        match = re.findall(str1, str2)
-        if match:
+    def _different_password(str1, str2):
+        if str1 == str2:
             return True
         else:
             return False
 
     def _is_match(s, pat):
-        return re.findall(pat, s)
+        return re.match(pat, s)
 
     data = request.get_json()   
     _First_name = data.get("first name","")
@@ -35,52 +34,43 @@ def _register():
     Pass = True
     Err = ""
     MODEL = account.Account()
-    req = MODEL.get({"account":_account})
-
+    
     #account check 英文大小寫開頭+英數，至少6碼至多20碼
+    req = MODEL.get({"account":_account})
     if req != None:
-        Pass = False
         Err = "account already exists"
         return make_response(jsonify({"status": Err}), 200)
-    pattern = r"[a-zA-z]+[a-zA-z0-9]*"
+    pattern = r"[a-zA-Z]+[a-zA-Z0-9]+$"
     match = _is_match(_account, pattern)
     LC = _len_check(_account)
-    if match and LC:
-        Pass = True
-    else:
-        Pass = False
+    if match == None or not LC:
         Err = "account format error"
         return make_response(jsonify({"status": Err}), 200)
         
     #password check 英數，至少6碼至多20碼
-    pattern = "[a-zA-z0-9]*"
+    pattern = r"[a-zA-Z0-9]+$"
     DP = _different_password(_password, _confirm_password)
     LC = _len_check(_password)
     match = _is_match(_password, pattern)
-    if DP and LC and match:
-        Pass = True
-    else:
-        Pass = False
+    if not DP or not LC or match == None:
         Err = "password format error"
         return make_response(jsonify({"status": Err}), 200)
     
     #e-mail check
+    req = MODEL.get({"e-mail":_email})
+    if req != None:
+        Err = "email already exists"
+        return make_response(jsonify({"status": Err}), 200)
     pattern = r"^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$"
     match = _is_match(_email, pattern)
-    if match:
-        Pass = True
-    else:
-        Pass = False
+    if match == None:
         Err = "E-mail format error"
         return make_response(jsonify({"status": Err}), 200)
 
     #phone check
     pattern = r"^09\d{8}$"
     match = _is_match(_phone, pattern)
-    if match:
-        Pass = True
-    else:
-        Pass = False
+    if match == None:
         Err = "phone format error"
         return make_response(jsonify({"status": Err}), 200)
 
@@ -105,7 +95,4 @@ def _register():
     }
 
     req = MODEL.new(new_user)
-    if Pass:
-        return make_response(jsonify({"status": "ok"}),200)
-    else:
-        return make_response(jsonify({"status": Err}), 200)
+    return make_response(jsonify({"status": "ok"}), 200)
