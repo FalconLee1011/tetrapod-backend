@@ -1,10 +1,20 @@
 from flask import Flask, Blueprint, jsonify, request, make_response
 from flask_socketio import SocketIO, emit
+from flask_mail import Mail
 from time import time
 
 app = Flask(__name__)
 app.debug = True
 io = SocketIO(app)
+mail = None
+
+def init_mail():
+    global mail 
+    mail = Mail(app)
+    return
+
+def get_mail():
+    return mail
 
 @app.route("/test")
 def _test():

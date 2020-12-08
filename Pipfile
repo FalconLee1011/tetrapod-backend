@@ -12,6 +12,7 @@ flask-socketio = "*"
 flask-session = "*"
 'pymongo[tls,srv]'= "*"
 PyJWT = "*"
+flask-mail = "*"
 
 [requires]
 python_version = "3.8"
