@@ -1,12 +1,14 @@
 from flask import Flask, Blueprint, jsonify, request, make_response
 from flask_socketio import SocketIO, emit
 from flask_mail import Mail
+from flask_cors import CORS
 from time import time
 
 app = Flask(__name__)
 app.debug = True
 io = SocketIO(app)
 mail = None
+CORS(app=app)
 
 def init_mail():
     global mail 
