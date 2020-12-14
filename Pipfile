@@ -13,6 +13,7 @@ flask-session = "*"
 'pymongo[tls,srv]'= "*"
 PyJWT = "*"
 flask-mail = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.8"
