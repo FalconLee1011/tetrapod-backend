@@ -1,31 +1,43 @@
 from ..db.models import account, token, verification
 from .app import *
 from ..lib import config
-import jwt, re, random, string, logging
+import  re, jwt, random, string, logging
 from time import time
 from flask_mail import Message
 from ..lib.config import getConfig
+from threading import Thread
 
 _LOGGER = logging.getLogger()
 
 MODULE_PREFIX = '/auth'
 account_MODEL = account.Account()
+token_MODEL = token.Token()
 verification_MODEL = verification.Verification()
 
 def _len_check(s):
     if len(s) > 5 and len(s) < 21:
         return True
-    else:
-        return False
+    return False
 
 def _different_password(str1, str2):
     if str1 == str2:
         return True
-    else:
-        return False
+    return False
 
 def _is_match(s, pat):
     return re.findall(pat, s)
+
+def send_async_email(app, msg):
+    with app.app_context():
+        get_mail().send(msg)
+
+def _tokenGenerator(N):
+    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=N))
+
+def check_email(_email):
+    pattern = r"^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$"
+    match = re.findall(pattern, _email)
+    return match
 
 @app.route(f"{MODULE_PREFIX}/editaccount",methods=["POST"])
 @account.Account.validate
@@ -42,7 +54,6 @@ def _edit_account(*args,**kwargs):
     _birth_date = data.get("birth date","")
     _sex = data.get("sex","")
     _description = data.get("market description","")
-    account_MODEL = account.Account()
         
     #password check 英數，至少6碼至多20碼
     pattern = r"[a-zA-Z0-9]+$"
@@ -89,20 +100,6 @@ def _edit_account(*args,**kwargs):
 
 @app.route(f"{MODULE_PREFIX}/register",methods=["POST"])
 def _register():
-    def _len_check(s):
-        if len(s) > 5 and len(s) < 21:
-            return True
-        else:
-            return False
-
-    def _different_password(str1, str2):
-        if str1 == str2:
-            return True
-        else:
-            return False
-
-    def _is_match(s, pat):
-        return re.match(pat, s)
 
     data = request.get_json()   
     _First_name = data.get("first name","")
@@ -113,12 +110,9 @@ def _register():
     _confirm_password = data.get("confirm password","")
     _email = data.get("e-mail","")
     _phone = data.get("phone","")
-    Pass = True
-    Err = ""
-    MODEL = account.Account()
     
     #account check 英文大小寫開頭+英數，至少6碼至多20碼
-    req = MODEL.get({"account":_account})
+    req = account_MODEL.get({"account":_account})
     if req != None:
         Err = "account already exists"
         return make_response(jsonify({"status": Err}), 200)
@@ -139,7 +133,7 @@ def _register():
         return make_response(jsonify({"status": Err}), 200)
     
     #e-mail check
-    req = MODEL.get({"e-mail":_email})
+    req = account_MODEL.get({"e-mail":_email})
     if req != None:
         Err = "email already exists"
         return make_response(jsonify({"status": Err}), 200)
@@ -176,15 +170,13 @@ def _register():
         "knockroom": None
     }
 
-    req = MODEL.new(new_user)
+    req = account_MODEL.new(new_user)
     return make_response(jsonify({"status": "ok"}), 200)
 
 @app.route(f"{MODULE_PREFIX}/login",methods=["POST"])
 def _login():
     _account = request.get_json().get("account",None)
     _password = request.get_json().get("password",None)
-    account_MODEL = account.Account()
-    token_MODEL = token.Token()
     account_req = account_MODEL.get({"account":_account})
     if account_req != None and _account == account_req['account'] and _password == account_req['password']:
         token_req = token_MODEL.get({"account":_account})
@@ -201,14 +193,13 @@ def _login():
 @app.route(f"{MODULE_PREFIX}/logout",methods=["POST"])
 @account.Account.validate
 def _logout(*args, **kwargs):
-    token_MODEL = token.Token()
     token_MODEL.update({"account":kwargs["account"]},{"$set":{"token":None}})
     return make_response(jsonify({"status":"ok"}),200)
 
 @app.route(f"{MODULE_PREFIX}/validate",methods=["POST"])
 def _validate(*args, **kwargs):
     front_token = request.get_json().get('token',None)
-    db_token = token.Token().get({"token":front_token})
+    db_token = token_MODEL.get({"token":front_token})
     secret = config.getConfig().get("app",{}).get("secret")
     _LOGGER.info("[info] validating token... (from validate API)")
     if db_token != None and front_token != None and front_token != '' and front_token == db_token.get('token'):
@@ -221,30 +212,10 @@ def _validate(*args, **kwargs):
             return make_response({"result": False}, 200)
     return make_response({"result": False}, 200)
 
-def send_async_email(app, msg):
-    with app.app_context():
-        get_mail().send(msg)
-
-def _tokenGenerator(N):
-    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=N))
-
-def _is_match(s, pat):
-    return re.findall(pat, s)
-
-def _len_check(s):
-    if len(s) > 5 and len(s) < 21:
-        return True
-    return False
-
-def check_email(_email):
-    pattern = r"^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$"
-    match = re.findall(pattern, _email)
-    return match
-
 @app.route(f'{MODULE_PREFIX}/checkemail', methods=["POST"])
 def _check_email():
     _email = request.get_json().get("e-mail",None)
-    if not check_email(_email):
+    if not (_email and check_email(_email)):
         return make_response(jsonify("E-mail format error"),200)
     account_req = account_MODEL.get({"e-mail":_email})
     if account_req is not None and account_req["e-mail"] == _email:
@@ -269,7 +240,7 @@ def _check_email():
 @app.route(f'{MODULE_PREFIX}/check_verification_code', methods=["POST"])
 def _check_verification_code():
     _email = request.get_json().get("e-mail",None)
-    if not check_email(_email):
+    if not (_email and check_email(_email)):
         return make_response(jsonify("E-mail format error"),200)
     account_req = account_MODEL.get({"e-mail":_email})
     if account_req == None:
@@ -286,7 +257,7 @@ def _check_verification_code():
 @app.route(f'{MODULE_PREFIX}/resetpassword', methods=["POST"])
 def _change_password():
     _email = request.get_json().get("e-mail",None)
-    if not check_email(_email):
+    if not (_email and check_email(_email)):
         return make_response(jsonify("E-mail format error"),200)
     account_req = account_MODEL.get({"e-mail":_email})
     if account_req == None:
@@ -300,8 +271,8 @@ def _change_password():
         return make_response(jsonify("verification code not match"),401)
     _password = request.get_json().get("password",None)
     _confirm_password = request.get_json().get("confirm password",None)
-    pattern = "[a-zA-Z0-9]*"
-    DP = _password ==  _confirm_password
+    pattern = r"[a-zA-Z0-9]*"
+    DP = _different_password(_password, _confirm_password)
     LC = _len_check(_password)
     match = _is_match(_password, pattern)
     if not (DP and LC and match):
