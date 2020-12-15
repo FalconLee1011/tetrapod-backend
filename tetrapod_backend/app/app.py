@@ -1,11 +1,12 @@
-from flask import Flask, Blueprint, jsonify, request, make_response
+from flask import Flask, Blueprint, jsonify, request, make_response, send_file
 from flask_socketio import SocketIO, emit
 from flask_mail import Mail
 from flask_cors import CORS
 from time import time
+from ..lib import config
 
 app = Flask(__name__)
-app.debug = True
+app.debug = config.getConfig().get("app", {}).get('debug', False)
 io = SocketIO(app)
 mail = None
 CORS(app=app)

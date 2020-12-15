@@ -3,3 +3,5 @@ config.yaml
 Pipfile.lock
 __pycache__
 *.log
+filecache/
+.DS_Store

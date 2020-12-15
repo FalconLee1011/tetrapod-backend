@@ -9,6 +9,10 @@ db:
 app:
   host: "0.0.0.0"
   port: 9001
+  debug: true
   secret: 
   mail_account: 
   mail_pass: 
+
+filehandler:
+  root_path: './filecache'
