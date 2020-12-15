@@ -3,7 +3,6 @@ from ..lib import config
 from .app import *
 from bson.objectid import ObjectId
 import jwt, time, json, re, datetime
-from bson.objectid import ObjectId
 
 MODULE_PREFIX = '/merchant'
 
