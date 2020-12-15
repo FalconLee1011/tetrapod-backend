@@ -9,12 +9,26 @@ class Merchant:
     def __init__(self):
         _LOGGER.info("[init]Merchant")
         self.model = model.model('merchant')
-    def get(self,doc):
+
+    def getOne(self, doc):
         _LOGGER.info("getting... ")
         _LOGGER.info(f"{doc}")
-        user = self.model.find_one(doc)
-        _LOGGER.info(user)
-        return user
+        rDocument = [self.model.find_one(doc)]
+        _LOGGER.info(rDocument)
+        def _map(rDocument):
+            rDocument["_id"] = str(rDocument["_id"])
+            return rDocument
+        return list(map(_map, rDocument))[0]
+
+    def getMultiple(self, doc):
+        _LOGGER.info("getting... ")
+        _LOGGER.info(f"{doc}")
+        rDocuments = self.model.find(doc)
+        _LOGGER.info(rDocuments)
+        def _map(rDocument):
+            rDocument["_id"] = str(rDocument["_id"])
+            return rDocument
+        return list(map(_map, rDocuments))
 
     def update(self,filter,update):
         _LOGGER.info("updating... ")

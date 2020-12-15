@@ -27,7 +27,7 @@ class Account:
     def validate(func):
         @wraps(func)
         def decorator(*args,**kwargs):
-            front_token = request.get_json().get('token',None)
+            front_token = request.headers.get('token',None)
             db_token = token.Token().get({"token":front_token})
             secret = config.getConfig().get("app",{}).get("secret")
             _LOGGER.info("validating token... ")
@@ -38,7 +38,8 @@ class Account:
                     token_data = jwt.decode(str.encode(front_token),secret)
                     kwargs = token_data
                     return func(*args,**kwargs)
-                except:
+                except Exception as e:
+                    _LOGGER.error(e)
                     return make_response(jsonify("Invalid token"),401)
             return make_response(jsonify("Invalid token"),401)
         return decorator

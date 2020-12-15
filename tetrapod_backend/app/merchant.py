@@ -2,23 +2,29 @@ from ..db.models import merchant, account
 from ..lib import config
 from .app import *
 from bson.objectid import ObjectId
+from ._fileHandler import _fileHandler
 import jwt, time, json, re, datetime
+from flask import send_file
 
 MODULE_PREFIX = '/merchant'
+MODEL = merchant.Merchant()
+FILE_HANDLER = _fileHandler()
 
-@app.route(f"{MODULE_PREFIX}/upload_merchant",methods=["POST"])
+@app.route(f"{MODULE_PREFIX}/upload",methods=["POST"])
 @account.Account.validate
 def _upload_merchant(*args,**kwargs):
-
-    _price = request.get_json().get('price',None)
-    _photo = request.get_json().get('photo',None)
-    _merchant_name = request.get_json().get('merchant_name',None)
-    _count = request.get_json().get('count',None)
-    _discription = request.get_json().get('discription',None)
-    _is_bidding = request.get_json().get('is_bidding',None)
-    _bidding_price = request.get_json().get('bidding_price',None)
-    _bidding_price_perbid = request.get_json().get('bidding_price_perbid',None)
-    _bidding_endtime = request.get_json().get('bidding_endtime',None)
+    photos = FILE_HANDLER.save(files=request.files.getlist("files[]"))
+    # return make_response(jsonify("SERVICE MAINTENANCE"), 503)
+    _price = request.form.get('price',None)
+    _photo = photos
+    _merchant_name = request.form.get('name',None)
+    _count = request.form.get('quantity',None)
+    _discription = request.form.get('intro',None)
+    _is_bidding = request.form.get('bidding_or_not',None)
+    _bidding_price = request.form.get('bidding_price',None)
+    _status = request.form.get('new_or_not',None)
+    _bidding_price_perbid = request.form.get('bidding_price_perbid',None)
+    _bidding_endtime = request.form.get('bidding_endtime',None)
     _account=kwargs['account']
 
     match = re.match(r"[1-9][0-9]*", _price)
@@ -29,9 +35,9 @@ def _upload_merchant(*args,**kwargs):
     if not(match):
         return make_response(jsonify({"status": '數量異常'}), 422)
 
-    match = re.match(r"[0-1]", _is_bidding)
-    if not(match):
-        return make_response(jsonify({"status": '競標狀態異常'}), 422)
+    # match = re.match(r"[0-1]", _is_bidding)
+    # if not(match):
+    #     return make_response(jsonify({"status": '競標狀態異常'}), 422)
 
     elif(_is_bidding=='1'):
         match = re.match(r"[1-9][0-9]*", _bidding_price)
@@ -64,7 +70,8 @@ def _upload_merchant(*args,**kwargs):
         "bidding_price":_bidding_price,
         "bidding_price_perbid":_bidding_price_perbid,
         "bidding_endtime":_bidding_endtime,
-        "account":_account
+        "account":_account,
+        "status":_status,
     }
     MODEL = merchant.Merchant()
     MODEL.new(form)
@@ -72,7 +79,6 @@ def _upload_merchant(*args,**kwargs):
 
 @app.route(f"{MODULE_PREFIX}/delete_merchant", methods=["POST"])
 @account.Account.validate
-
 def _delete_merchant():
     data = request.get_json()
     _merchant_id = data.get("merchant id", "")
@@ -87,7 +93,6 @@ def _delete_merchant():
 
 @app.route(f"{MODULE_PREFIX}/edit_merchant", methods=["POST"])
 @account.Account.validate
-
 def _edit_merchant(*args,**kwargs):
     data = request.get_json()
     _merchant_id = data.get("merchant id", "")
@@ -157,3 +162,17 @@ def _edit_merchant(*args,**kwargs):
     f = {"_id": ObjectId(_merchant_id)}
     MODEL.update(f, {"$set":form})
     return make_response(jsonify("edit merchant success"),200)
+
+@app.route(f"{MODULE_PREFIX}/get", methods=["GET"])
+def _get_merchant():
+    mID = request.args.get("id")
+    res = MODEL.getOne({"_id": ObjectId(mID)})
+    if res != None: return make_response({"merchant": res}, 200)
+    else: return make_response({"merchant": None}, 404)
+
+@app.route(f"{MODULE_PREFIX}/getall", methods=["GET"])
+def _get_allmerchants():
+    mID = request.args.get("id")
+    res = MODEL.getMultiple({})
+    if len(res) != 0: return make_response({"merchants": res}, 200)
+    else: return make_response({"merchants": None}, 404)

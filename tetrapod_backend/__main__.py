@@ -1,5 +1,4 @@
 from .lib import config, log
-from .app import app
 from .db import connection
 import logging
 
@@ -21,7 +20,7 @@ def run_app():
     # * Following shit code is reserved for legacy method
     # from .app.legacy import app, testAPI, login, register, edit_account, upload_merchant, delete_merchant, logout, reset_password
     # * The new API regisger method is replaced by another shit way though.
-    from .app import app, auth, knock, merchant, tracking
+    from .app import app, auth, knock, merchant, tracking, files
 
     app_host = CONF.get("app", {}).get("host", "127.0.0.1")
     app_port = CONF.get("app", {}).get("port", 9000)
