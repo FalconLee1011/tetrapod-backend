@@ -21,7 +21,7 @@ def _upload_merchant(*args,**kwargs):
     _merchant_name = request.form.get('name',None)
     _count = request.form.get('quantity',None)
     _discription = request.form.get('intro',None)
-    _is_bidding = request.form.get('bidding_or_not',None)
+    _is_bidding = request.form.get('bidding_or_not',False)
     _status = request.form.get('new_or_not',None)
     _bidding_price = request.form.get('bidding_price',None)
     _bidding_price_perbid = request.form.get('bidding_price_perbid',None)
@@ -62,6 +62,7 @@ def _upload_merchant(*args,**kwargs):
     #     _bidding_price_perbid = None
     #     _bidding_endtime = None
     #make json
+    _is_bidding = True if(_is_bidding.lower() == "true") else False
     form = {
         "price": _price,
         "photo": _photo,
