@@ -5,6 +5,7 @@ from bson.objectid import ObjectId
 from ._fileHandler import _fileHandler
 import jwt, time, json, re, datetime
 from flask import send_file
+import pymongo
 
 MODULE_PREFIX = '/merchant'
 MODEL = merchant.Merchant()
@@ -21,10 +22,11 @@ def _upload_merchant(*args,**kwargs):
     _count = request.form.get('quantity',None)
     _discription = request.form.get('intro',None)
     _is_bidding = request.form.get('bidding_or_not',None)
-    _bidding_price = request.form.get('bidding_price',None)
     _status = request.form.get('new_or_not',None)
+    _bidding_price = request.form.get('bidding_price',None)
     _bidding_price_perbid = request.form.get('bidding_price_perbid',None)
     _bidding_endtime = request.form.get('bidding_endtime',None)
+
     _account=kwargs['account']
 
     match = re.match(r"[1-9][0-9]*", _price)
@@ -39,43 +41,44 @@ def _upload_merchant(*args,**kwargs):
     # if not(match):
     #     return make_response(jsonify({"status": '競標狀態異常'}), 422)
 
-    elif(_is_bidding=='1'):
-        match = re.match(r"[1-9][0-9]*", _bidding_price)
-        if not(match):
-            return make_response(jsonify({"status": '競標價格異常'}), 422)
+    # elif(_is_bidding=='1'):
+    #     match = re.match(r"[1-9][0-9]*", _bidding_price)
+    #     if not(match):
+    #         return make_response(jsonify({"status": '競標價格異常'}), 422)
 
-        match = re.match(r"[1-9][0-9]*", _bidding_price_perbid)
-        if not(match):
-            return make_response(jsonify({"status": '每標價格異常'}), 422)
+    #     match = re.match(r"[1-9][0-9]*", _bidding_price_perbid)
+    #     if not(match):
+    #         return make_response(jsonify({"status": '每標價格異常'}), 422)
 
-        try:
-            match_bidding_endtime = datetime.datetime.strptime(_bidding_endtime,"%Y-%m-%d%H:%M")
-            _now = datetime.datetime.now()
-            if(match_bidding_endtime < _now):
-                return make_response(jsonify({"status": '競標時間異常'}), 422)
-        except:
-            return make_response(jsonify({"status": '競標時間異常'}), 422)
-    else:
-        _bidding_price = None
-        _bidding_price_perbid = None
-        _bidding_endtime = None
+    #     try:
+    #         match_bidding_endtime = datetime.datetime.strptime(_bidding_endtime,"%Y-%m-%d%H:%M")
+    #         _now = datetime.datetime.now()
+    #         if(match_bidding_endtime < _now):
+    #             return make_response(jsonify({"status": '競標時間異常'}), 422)
+    #     except:
+    #         return make_response(jsonify({"status": '競標時間異常'}), 422)
+    # else:
+    #     _bidding_price = None
+    #     _bidding_price_perbid = None
+    #     _bidding_endtime = None
     #make json
     form = {
-        "price":_price,
-        "photo":_photo,
-        "merchant_name":_merchant_name,
-        "count":_count,
-        "discription":_discription,
-        "is_bidding":_is_bidding,
-        "bidding_price":_bidding_price,
-        "bidding_price_perbid":_bidding_price_perbid,
-        "bidding_endtime":_bidding_endtime,
-        "account":_account,
-        "status":_status,
+        "price": _price,
+        "photo": _photo,
+        "merchant_name": _merchant_name,
+        "count": _count,
+        "discription": _discription,
+        "is_bidding": bool(_is_bidding),
+        "bidding_price": _bidding_price,
+        "bidding_price_perbid": _bidding_price_perbid,
+        "bidding_endtime": _bidding_endtime,
+        "account": _account,
+        "status": _status,
     }
     MODEL = merchant.Merchant()
     MODEL.new(form)
     return make_response(jsonify("upload merchant success"),200)
+    # return make_response(jsonify(form),200)
 
 @app.route(f"{MODULE_PREFIX}/delete_merchant", methods=["POST"])
 @account.Account.validate
@@ -105,7 +108,7 @@ def _edit_merchant(*args,**kwargs):
     _bidding_price = data.get('bidding_price',None)
     _bidding_price_perbid = data.get('bidding_price_perbid',None)
     _bidding_endtime = data.get('bidding_endtime',None)
-    _account=kwargs['account']
+    _account = kwargs['account']
 
     Err = ""
     if _merchant_id == "":
@@ -133,13 +136,14 @@ def _edit_merchant(*args,**kwargs):
         if not(match):
             return make_response(jsonify({"status": '每標價格異常'}), 422)
 
-        try:
-            match_bidding_endtime = datetime.datetime.strptime(_bidding_endtime,"%Y-%m-%d%H:%M")
-            _now = datetime.datetime.now()
-            if(match_bidding_endtime < _now):
-                return make_response(jsonify({"status": '競標時間異常'}), 422)
-        except:
-            return make_response(jsonify({"status": '競標時間異常'}), 422)
+        # Note: Disabled for demo
+        # try:
+        #     match_bidding_endtime = datetime.datetime.strptime(_bidding_endtime,"%Y-%m-%d%H:%M")
+        #     _now = datetime.datetime.now()
+        #     if(match_bidding_endtime < _now):
+        #         return make_response(jsonify({"status": '競標時間異常'}), 422)
+        # except:
+        #     return make_response(jsonify({"status": '競標時間異常'}), 422)
     else:
         _bidding_price = None
         _bidding_price_perbid = None
@@ -173,6 +177,6 @@ def _get_merchant():
 @app.route(f"{MODULE_PREFIX}/getall", methods=["GET"])
 def _get_allmerchants():
     mID = request.args.get("id")
-    res = MODEL.getMultiple({})
+    res = MODEL.getMultiple({}, sort=[("_created", pymongo.DESCENDING)])
     if len(res) != 0: return make_response({"merchants": res}, 200)
     else: return make_response({"merchants": None}, 404)

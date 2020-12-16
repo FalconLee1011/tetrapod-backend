@@ -20,10 +20,10 @@ class Merchant:
             return rDocument
         return list(map(_map, rDocument))[0]
 
-    def getMultiple(self, doc):
+    def getMultiple(self, doc, sort=[]):
         _LOGGER.info("getting... ")
         _LOGGER.info(f"{doc}")
-        rDocuments = self.model.find(doc)
+        rDocuments = self.model.find(doc, mSort=sort)
         _LOGGER.info(rDocuments)
         def _map(rDocument):
             rDocument["_id"] = str(rDocument["_id"])
