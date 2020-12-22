@@ -200,3 +200,29 @@ def _get_allmerchants():
     res = MODEL.getMultiple({}, sort=[("_created", pymongo.DESCENDING)])
     if len(res) != 0: return make_response({"merchants": res}, 200)
     else: return make_response({"merchants": None}, 404)
+
+@app.route(f"{MODULE_PREFIX}/add_to_cart", methods=["POST"])
+@account.Account.validate
+def _add_to_cart(*args,**kwargs):
+    _act = kwargs['account']
+    mID = request.get_json().get('merchant id',None)
+    _cart = account.Account().get({'account':_act,'cart':{"$type":"array"}})
+    _ct = 1
+    if _cart != None: #cart type correct
+        _ce = account.Account().get({'$and':[{'account':_act},{'cart':{"$elemMatch":{"merchant_id":mID}}}]})
+        if _ce == None:# new
+            account.Account().update({"account":_act},{'$push': {'cart': {"merchant_id":mID,"merchant_count":1}}})
+        else:# old plus
+            _mct = _ce['cart']
+            for i in _mct:
+                try:
+                    if i['merchant_id'] == mID:
+                        _ct = i['merchant_count']
+                        break
+                except:
+                    return make_response({"Error": "db type error"}, 404)
+            _ct += 1
+            account.Account().update({"account":_act,"cart.merchant_id":mID},{'$set': {'cart.$.merchant_count': _ct}})
+    else:
+        account.Account().update({"account":_act},{'$set': {'cart':[{"merchant_id":mID,"merchant_count":1}]}})
+    return make_response({"merchant_id": mID,"merchant_count":_ct}, 200)
