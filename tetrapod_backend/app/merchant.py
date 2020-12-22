@@ -170,19 +170,18 @@ def _edit_merchant(*args,**kwargs):
 
 def _Browsing_history(mID):
     _tk = request.headers.get('token',None)
-    if(_tk): #token exist
+    if(_tk): # token exist
         _srt = config.getConfig().get("app",{}).get("secret")
         _act = jwt.decode(str.encode(_tk),_srt)['account']
-        _bhisnull = account.Account().get({'account':_act})['browsing_history']
-        if _bhisnull != None: #history exist
-            _bh = account.Account().get({'$and':[{'account':_act},{'browsing_history': mID}]})
-            if _bh == None: # del old
-                account.Account().update({"account":_act},{'$push': {'browsing_history': mID}})
+        _bhisnull = account.Account().get({'account':_act,'browsing_history':{"$type":"array"}})
+        if _bhisnull != None: # history type correct
+            _bh = account.Account().get({'$and':[{'account':_act},{'browsing_history':{"$elemMatch":{"merchant_id":mID}}}]})
+            if _bh == None: # new
+                account.Account().update({"account":_act},{'$push':{'browsing_history':{'merchant_id':mID,"date":datetime.datetime.now()}}})
             else:
-                account.Account().update(_bh,{'$pull':{'browsing_history': mID}})
-                account.Account().update({"account":_act},{'$push': {'browsing_history': mID}})
+                account.Account().update({"account":_act,'browsing_history.merchant_id':mID},{'$set': {'browsing_history.$.date':datetime.datetime.now()}})
         else:
-            account.Account().update({"account":_act},{'$set': {'browsing_history': [mID]}})
+            account.Account().update({"account":_act},{'$set': {'browsing_history':[{"merchant_id":mID,"date":datetime.datetime.now()}]}})
     else:
         return
 
