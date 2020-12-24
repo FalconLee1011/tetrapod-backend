@@ -181,7 +181,8 @@ def _login():
     if account_req != None and _account == account_req['account'] and _password == account_req['password']:
         token_req = token_MODEL.get({"account":_account})
         secret = config.getConfig().get("app",{}).get("secret")
-        account_token = bytes.decode(jwt.encode({"account":_account,"timestamp":str(time())},secret))
+        # account_token = bytes.decode(jwt.encode({"account":_account,"timestamp":str(time())},secret))
+        account_token = jwt.encode({"account":_account,"timestamp":str(time())},secret)
         if token_req == None:
             token_MODEL.new({"account":_account,"token":account_token})
         else:    
@@ -206,9 +207,11 @@ def _validate(*args, **kwargs):
         _LOGGER.info("Front token: "+front_token)
         _LOGGER.info("DB token: "+db_token.get('token'))
         try:
-            token_data = jwt.decode(str.encode(front_token),secret)
+            _LOGGER.info("[info] validate passed (from validate API)")
             return make_response({"result": True}, 200)
-        except:
+        except Exception as err:
+            _LOGGER.error("[error] validate error (from validate API)")
+            _LOGGER.error(err)
             return make_response({"result": False}, 200)
     return make_response({"result": False}, 200)
 
