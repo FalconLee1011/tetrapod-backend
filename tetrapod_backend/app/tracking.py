@@ -12,12 +12,23 @@ def _browsing_history(*args,**kwargs):
     _account = kwargs['account']
     _account = MODEL_account.get({"account":_account})
     _bsh = _account['browsing_history']
-    res = []
+    r = []
     for i in _bsh:
-        try:
-            m = MODEL_merchant.getOne({"_id":ObjectId(i)})
-            res.append(m)
-        except:
-            account.Account().update(_account,{'$pull':{'browsing_history': i}})
-    if  len(res) != 0: return make_response({"browsing_history": res}, 200)
+        if(type(i)!=dict):
+            MODEL_account.update(_account,{'$pull':{'browsing_history': i}})
+        else:
+            try:
+                r.append([i['merchant_id'],i['date']])
+            except:
+                # MODEL_account.update(_account,{'$pull':{'browsing_history': i}})
+                return make_response({"Error": "db type error"}, 404)
+    if  len(r) != 0:
+        r = sorted(r,key = lambda x:x[1],reverse=True)
+        res = []
+        for i in r:
+            try:
+                res.append(MODEL_merchant.getOne({"_id":ObjectId(i[0])}))
+            except:
+                return make_response({"Error": "db type error"}, 404)
+        return make_response({"browsing_history": res}, 200)
     else: return make_response({"browsing_history": None}, 404)
