@@ -214,7 +214,8 @@ def _validate(*args, **kwargs):
 
 @app.route(f'{MODULE_PREFIX}/checkemail', methods=["POST"])
 def _check_email():
-    _email = request.get_json().get("e-mail",None)
+    _email = request.get_json().get("email",None)
+    _LOGGER.debug(_email)
     if not (_email and check_email(_email)):
         return make_response(jsonify("E-mail format error"),200)
     account_req = account_MODEL.get({"e-mail":_email})
@@ -228,6 +229,7 @@ def _check_email():
             "Hey "+ account_req["account"]+"!\nTo complete the password reset, please enter the verification code on the device.\n\n\tVerification code: "+_verification_code+"\n\nThanks,\nThe TetrapodShop Team"
         )
         thr = Thread(target=send_async_email, args=[app, msg])
+        _LOGGER.debug(msg)
         thr.start()
         verification_req = verification_MODEL.get({"account":account_req["account"]})
         if verification_req == None:
@@ -239,30 +241,30 @@ def _check_email():
 
 @app.route(f'{MODULE_PREFIX}/check_verification_code', methods=["POST"])
 def _check_verification_code():
-    _email = request.get_json().get("e-mail",None)
+    _email = request.get_json().get("email",None)
     if not (_email and check_email(_email)):
         return make_response(jsonify("E-mail format error"),200)
     account_req = account_MODEL.get({"e-mail":_email})
     if account_req == None:
         return make_response(jsonify("E-mail not exist"),401)
-    _user_verification = request.get_json().get("verification code",None)
+    _user_verification = request.get_json().get("token",None)
     db_req = verification_MODEL.get({"account":account_req["account"]})
     if db_req == None:
         return make_response(jsonify("e-mail non exist"),401)
     _db_verification = db_req["verification_code"]
     if _db_verification == _user_verification:
-        return make_response(jsonify("verification code match"),200)
+        return make_response(jsonify({"status": "ok"}),200)
     return make_response(jsonify("verification code not match"),401)
 
 @app.route(f'{MODULE_PREFIX}/resetpassword', methods=["POST"])
 def _change_password():
-    _email = request.get_json().get("e-mail",None)
+    _email = request.get_json().get("email",None)
     if not (_email and check_email(_email)):
         return make_response(jsonify("E-mail format error"),200)
     account_req = account_MODEL.get({"e-mail":_email})
     if account_req == None:
         return make_response(jsonify("E-mail not exist"),401)
-    _user_verification = request.get_json().get("verification code",None)
+    _user_verification = request.get_json().get("token",None)
     db_req = verification_MODEL.get({"account":account_req["account"]})
     if db_req == None:
         return make_response(jsonify("e-mail non exist"),401)
@@ -270,7 +272,7 @@ def _change_password():
     if _db_verification != _user_verification:
         return make_response(jsonify("verification code not match"),401)
     _password = request.get_json().get("password",None)
-    _confirm_password = request.get_json().get("confirm password",None)
+    _confirm_password = request.get_json().get("password",None)
     pattern = r"[a-zA-Z0-9]*"
     DP = _different_password(_password, _confirm_password)
     LC = _len_check(_password)
