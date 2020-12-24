@@ -1,14 +1,16 @@
 db:
-  host: "127.0.0.1"
-  port: 27017
+  host: 
+  port: 
   user: 
   pass: 
-  db: "db_name" 
-  debug: false
+  db:  
+  debug: true
+  timeout: 20000
 
 app:
   host: "0.0.0.0"
   port: 9001
+  prefix: ""
   debug: true
   secret: 
   mail_account: 

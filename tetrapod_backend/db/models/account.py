@@ -35,7 +35,7 @@ class Account:
                 _LOGGER.info("Front token: "+front_token)
                 _LOGGER.info("DB token: "+db_token.get('token'))
                 try:
-                    token_data = jwt.decode(str.encode(front_token),secret)
+                    token_data = jwt.decode(str.encode(front_token), secret, algorithms=["HS256"])
                     kwargs = token_data
                     return func(*args,**kwargs)
                 except Exception as e:

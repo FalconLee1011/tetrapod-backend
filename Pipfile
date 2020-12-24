@@ -15,6 +15,7 @@ PyJWT = "*"
 flask-mail = "*"
 flask-cors = "*"
 uuid = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"
