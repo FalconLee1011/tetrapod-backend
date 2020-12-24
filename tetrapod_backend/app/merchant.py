@@ -302,3 +302,69 @@ def _get_winner(*args,**kwargs):
         return make_response({"status": "not yet"}, 200)
     _add(_af, _merchant_id)
     return make_response({"winner":_winner["account"]}, 200)
+
+@app.route(f"{MODULE_PREFIX}/get_cart", methods=["GET"])
+@account.Account.validate
+def _get_cart(*args,**kwargs):
+    _act = kwargs['account']
+    _cart = account.Account().get({'account':_act,'cart':{"$type":"array"}})
+    _getmulct = []
+    _getcount = []
+    if _cart != None:# cart type correct
+        for i in _cart['cart']:
+            if(type(i)!=dict):
+                account.Account().update(_act,{'$pull':{'cart': i}})
+            else:
+                try:
+                    _getmulct.append(ObjectId(i['merchant_id']))
+                    _getcount.append(i['merchant_count'])
+                except:
+                    pass
+        if len(_getmulct)!=0:
+            try:# get merchant and set count
+                res = MODEL.getMultiple({"_id":{"$in":_getmulct}})
+            except:
+                return make_response({"Error": "db type error"}, 404)
+            for zz in range(0,len(res)):
+                res[zz]['merchant_count'] = _getcount[zz]
+            return make_response({"merchants":res},200)    
+    return make_response({"merchants": None}, 200)
+
+@app.route(f"{MODULE_PREFIX}/delete_cart", methods=["POST"])
+@account.Account.validate
+def _del_cart(*args,**kwargs):
+    _act = kwargs['account']
+    mID = request.get_json().get('merchant id',None)
+    try:
+        account.Account().update({'account':_act,'cart.merchant_id':mID},{"$pull":{'cart':{"merchant_id":mID}}})
+    except Exception as e:
+        return make_response({"Error":"not found"}, 404)
+    return make_response({"status":"delete success"}, 200)
+
+@app.route(f"{MODULE_PREFIX}/edit_cart", methods=["POST"])
+@account.Account.validate
+def _edit_cart(*args,**kwargs): # can't tell whether merchant in cart
+    _act = kwargs['account']
+    mID = request.get_json().get('merchant id',None)
+    mcount = int(request.get_json().get('merchant count',None))
+    _gtm = MODEL.getOne({'_id':ObjectId(mID)})
+    _getmercount = int(_gtm['count'])
+    _getmerbid = _gtm['is_bidding']
+    if mcount == 0:# del from cart
+        try:
+            account.Account().update({'account':_act,'cart.merchant_id':mID},{"$pull":{'cart':{"merchant_id":mID}}})
+            return make_response({"status":"delete success"}, 200)
+        except Exception as e:
+            return make_response({"Error":"not found"}, 404)
+    else:
+        if mcount > _getmercount:# over the merchant count
+            return make_response({"Error":"over the merchant count"},404)
+        elif _getmerbid:# is bidding
+            return make_response({"Error":"can't edit bidding merchant"},404)
+        else:
+            try:
+                account.Account().update({'account':_act,'cart.merchant_id':mID},{"$set":{'cart.$.merchant_count':mcount}})
+                return make_response({"merchant id":mID,"merchant count":mcount}, 200)
+            except Exception as e:
+                return make_response({"Error":"db error"}, 404)
+    return make_response({"Error":"nothing happend"}, 200)
