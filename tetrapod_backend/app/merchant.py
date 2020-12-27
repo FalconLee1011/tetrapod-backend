@@ -75,6 +75,7 @@ def _upload_merchant(*args,**kwargs):
         "bidding_endtime": _bidding_endtime,
         "account": _account,
         "status": _status,
+        "winner_id": None
     }
     MODEL = merchant.Merchant()
     MODEL.new(form)
@@ -148,7 +149,8 @@ def _edit_merchant(*args,**kwargs):
     else:
         _bidding_price = None
         _bidding_price_perbid = None
-        _bidding_endtime = None    
+        _bidding_endtime = None
+        _winner_id = None    
         #make json
     form = {
         "price":_price,
@@ -160,7 +162,8 @@ def _edit_merchant(*args,**kwargs):
         "bidding_price":_bidding_price,
         "bidding_price_perbid":_bidding_price_perbid,
         "bidding_endtime":_bidding_endtime,
-        "account":_account
+        "account":_account,
+        "winner_id":_winner_id
     }
     
     MODEL = merchant.Merchant()
@@ -225,3 +228,77 @@ def _add_to_cart(*args,**kwargs):
     else:
         account.Account().update({"account":_act},{'$set': {'cart':[{"merchant_id":mID,"merchant_count":1}]}})
     return make_response({"merchant_id": mID,"merchant_count":_ct}, 200)
+
+@app.route(f"{MODULE_PREFIX}/bidding/bid",methods=["POST"])
+@account.Account.validate
+def _bid(*args,**kwargs):
+    data = request.get_json()
+    _account = kwargs['account']
+    _merchant_id = data.get("merchant id", None)
+    _bid_amount = int(data.get("bid amount", None))
+    if _merchant_id == "":
+        Err = "no merchant_id"
+        return make_response(jsonify({"status": Err}),200)
+    if _bid_amount < 1 or _bid_amount > 1000000:
+        Err = "amount error"
+        return make_response(jsonify({"status": Err}),200)
+    f = {"_id": ObjectId(_merchant_id)}
+    _merchant_data = MODEL.getOne(f)
+    _bidding_price = int(_merchant_data["bidding_price"]) + int(_bid_amount) * int(_merchant_data["bidding_price_perbid"])
+    if(_bidding_price >= int(_merchant_data["price"])):
+        _bidding_price = int(_merchant_data["price"])
+    up = {
+        "bidding_price": _bidding_price,
+        "winner_id": _account
+    }
+    MODEL.update(f, {"$set":up})
+    return make_response(jsonify("ok"),200)
+
+
+@app.route(f"{MODULE_PREFIX}/bidding/bid_update",methods=["POST"])
+@account.Account.validate
+def _bid_update(*args,**kwargs):
+    data = request.get_json()  
+    _merchant_id = data.get("merchant id", None)
+    if _merchant_id == "":
+        Err = "no merchant_id"
+        return make_response(jsonify({"status": Err}),200)
+    f = {"_id": ObjectId(_merchant_id)}
+    merchant_data = MODEL.getOne(f)
+    return make_response({"bidding price":merchant_data["bidding_price"]}, 200)
+
+@app.route(f"{MODULE_PREFIX}/bidding/get_winner",methods=["POST"])
+@account.Account.validate
+def _get_winner(*args,**kwargs):
+    def _is_expired(_cmp):
+        _now = datetime.datetime.now().timestamp()
+        if float(_cmp) < float(_now):
+            return False
+        else:
+            return True
+    
+    def _add(_af, _merchant_id):
+        _winner = account.Account().get(_af)
+        if _winner["cart"] == None:
+            account.Account().update(_af, {"$set": {'cart':[{"merchant_id":_merchant_id, "merchant_count":1}]}})
+        else:
+            account.Account().update(_af, {"$push": {"merchant_id":_merchant_id, "merchant_count":1}})
+    data = request.get_json()
+    _merchant_id = data.get("merchant id", None)
+    if _merchant_id == "":
+        Err = "no merchant_id"
+        return make_response(jsonify({"status": Err}),200)
+    f = {"_id": ObjectId(_merchant_id)}
+    _merchant_data = MODEL.getOne(f)
+    if _merchant_data["winner_id"] == None:
+        return make_response({"status": "nobody bid"}, 200)
+    _af = {"account": _merchant_data["winner_id"]}
+    _winner = account.Account().get(_af)
+    if(int(_merchant_data["bidding_price"]) >= int(_merchant_data["price"])):
+        _add(_af, _merchant_id)
+        return make_response({"winner": _winner["account"]}, 200)
+    _end_time = _merchant_data["bidding_endtime"]
+    if _is_expired(_end_time):
+        return make_response({"status": "not yet"}, 200)
+    _add(_af, _merchant_id)
+    return make_response({"winner":_winner["account"]}, 200)
