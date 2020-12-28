@@ -44,7 +44,7 @@ class model:
         )
 
     def update_one(self, mFilter, mUpdate, upsert=True):
-        mUpdate = _timestamp("_updated", mUpdate)
+        # mUpdate = _timestamp("_updated", mUpdate)
         mRet = self.collection.update_one(mFilter, mUpdate, upsert=upsert)
         return MongoResult(
             matchedCount=mRet.matched_count,
