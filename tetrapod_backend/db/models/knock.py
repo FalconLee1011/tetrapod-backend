@@ -47,8 +47,8 @@ class Knock:
 
     def newMessage(self, filter, update):
         _LOGGER.info("joining room... {filter}")
-        _LOGGER.info(f"{filter}")
-        res = self.model.find_one_and_update(filter, update)
+        _LOGGER.info(f"{_filter}")
+        res = self.model.find_one_and_update(_filter, update)
         _LOGGER.info(res)
         return 0
 
@@ -66,9 +66,10 @@ class Knock:
         _LOGGER.info(res)
         return str(res.documentIds[0])
 
-    def delete(self,doc):
-        _LOGGER.info("deleting... ")
-        _LOGGER.info(f"{doc}")
-        res = self.model.delete_one(doc)
-        _LOGGER.info(res)
-        return 0
+    # - RESERVED FOR FUTER UPDATE
+    # def delete(self,doc):
+    #     _LOGGER.info("deleting... ")
+    #     _LOGGER.info(f"{doc}")
+    #     res = self.model.delete_one(doc)
+    #     _LOGGER.info(res)
+    #     return 0

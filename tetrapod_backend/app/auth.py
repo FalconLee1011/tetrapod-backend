@@ -102,14 +102,16 @@ def _edit_account(*args,**kwargs):
 def _register():
 
     data = request.get_json()   
-    _First_name = data.get("first name","")
-    _Last_name = data.get("last name","")
-    _Nick_name = data.get("nick name","")
+    _First_name = data.get("first_name","")
+    _Last_name = data.get("last_name","")
+    _Nick_name = data.get("nick_name","")
     _account = data.get("account","")
     _password = data.get("password","")
-    _confirm_password = data.get("confirm password","")
-    _email = data.get("e-mail","")
+    # _confirm_password = data.get("confirm password","")
+    _confirm_password = _password
+    _email = data.get("email","")
     _phone = data.get("phone","")
+    _sex = data.get("sex","")
     
     #account check 英文大小寫開頭+英數，至少6碼至多20碼
     req = account_MODEL.get({"account":_account})
@@ -161,7 +163,7 @@ def _register():
         "e-mail": _email,
         "phone": _phone,
         "birth_date": None,
-        "sex": None,
+        "sex": _sex,
         "market_discription": None,
         "browsing_history": None,
         "cart": None,
