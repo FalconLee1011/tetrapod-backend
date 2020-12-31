@@ -188,13 +188,19 @@ def _Browsing_history(mID):
     else:
         return
 
-@app.route(f"{MODULE_PREFIX}/get", methods=["GET"])
+@app.route(f"{MODULE_PREFIX}/get", methods=["GET", "POST"])
 def _get_merchant():
-    mID = request.args.get("id")
-    _Browsing_history(mID)
-    res = MODEL.getOne({"_id": ObjectId(mID)})
-    if res != None: return make_response({"merchant": res}, 200)
-    else: return make_response({"merchant": None}, 404)
+    if(request.method == "GET"):
+        mID = request.args.get("id")
+        _Browsing_history(mID)
+        res = MODEL.getOne({"_id": ObjectId(mID)})
+        if res != None: return make_response({"merchant": res}, 200)
+        else: return make_response({"merchant": None}, 404)
+    elif(request.method == "POST"):
+        doc = request.get_json().get("query", {})
+        res = MODEL.getMultiple(doc, sort=[("_created", pymongo.DESCENDING)])
+        if res != [None]: return make_response({"merchants": res}, 200)
+        else: return make_response({"merchants": None}, 404)
 
 @app.route(f"{MODULE_PREFIX}/getall", methods=["GET"])
 def _get_allmerchants():
@@ -253,7 +259,6 @@ def _bid(*args,**kwargs):
     }
     MODEL.update(f, {"$set":up})
     return make_response(jsonify("ok"),200)
-
 
 @app.route(f"{MODULE_PREFIX}/bidding/bid_update",methods=["POST"])
 @account.Account.validate
