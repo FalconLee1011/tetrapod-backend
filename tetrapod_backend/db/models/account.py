@@ -14,13 +14,29 @@ class Account:
         _LOGGER.info("getting account... ")
         _LOGGER.info(f"{doc}")
         user = self.model.find_one(doc)
+        del user["_id"]
         _LOGGER.info(user)
         return user
 
-    def update(self,filter,update):
+    def getWithRedacted(self, doc):
+        _LOGGER.info("getting account with redacted information... ")
+        _LOGGER.info(f"{doc}")
+        user = self.model.find_one(doc, mProject=[
+            "account_avator", 
+            "first_name", 
+            "last_name", 
+            "nick_name", 
+            "account", 
+            "market_discription"
+        ])
+        del user["_id"]
+        _LOGGER.info(user)
+        return user
+
+    def update(self,_filter,update):
         _LOGGER.info("updating account... ")
-        _LOGGER.info(f"{filter}")
-        res = self.model.find_one_and_update(filter,update)
+        _LOGGER.info(f"{_filter}")
+        res = self.model.find_one_and_update(_filter,update)
         _LOGGER.info(res)
         return 0
 
