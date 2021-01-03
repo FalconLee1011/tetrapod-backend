@@ -24,6 +24,7 @@ class Knock:
         _LOGGER.info(f"{doc}")
         rDocument = [self.model.find_one(doc)]
         _LOGGER.info(rDocument)
+        if(rDocument == [None]): return None
         return list(map(self._mapOne, rDocument))[0]
 
     def getRoomWith(self, doc):
@@ -45,8 +46,8 @@ class Knock:
         _LOGGER.info(res)
         return list(map(self._mapOne, res))[0]
 
-    def newMessage(self, filter, update):
-        _LOGGER.info("joining room... {filter}")
+    def newMessage(self, _filter, update):
+        _LOGGER.info(f"joining room... {_filter}")
         _LOGGER.info(f"{_filter}")
         res = self.model.find_one_and_update(_filter, update)
         _LOGGER.info(res)

@@ -19,3 +19,11 @@ def _get_account():
         "account": account
     })
     return make_response({"account": acc}, 200)
+
+@app.route(f"{MODULE_PREFIX}/get-user", methods=["POST"])
+def _get_user():
+    account = request.get_json().get("account")
+    acc = MODEL.get({
+        "account": account
+    })
+    return make_response({"account": acc}, 200)
