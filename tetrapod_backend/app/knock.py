@@ -44,7 +44,7 @@ def _createRoom():
     existing_room = MODEL.get({"accounts": [account, receiver]})
 
     if(existing_room != None):
-        return make_response({"room": existing_room.get("_id")}, 200)
+        return make_response({"status": "exist", "room": existing_room.get("_id")}, 200)
 
     account_item = MODEL_USERS.get({"account": account})
     receiver_item = MODEL_USERS.get({"account": receiver})
@@ -76,7 +76,7 @@ def _createRoom():
     MODEL_USERS.update({"account": account}, {"$push": {"knockroom": res}})
     MODEL_USERS.update({"account": receiver}, {"$push": {"knockroom": res}})
 
-    return make_response({"room": res}, 200)
+    return make_response({"status": "new", "room": res}, 200)
 
 @app.route(f'{MODULE_PREFIX}/getRooms', methods=["POST"])
 # @Account.validate 
