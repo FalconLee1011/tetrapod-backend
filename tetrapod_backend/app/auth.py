@@ -43,7 +43,7 @@ def check_email(_email):
 @account.Account.validate
 def _edit_account(*args,**kwargs):    
     data = request.form
-    _account_avator = data.get("account_avator","")
+    _account_avator = FILE_HANDLER.save(files=request.files.getlist("account_avator[]"))[0]
     _First_name = data.get("first_name","")
     _Last_name = data.get("last_name","")
     _Nick_name = data.get("nick_name","")
@@ -164,7 +164,7 @@ def _register():
         "phone": _phone,
         "birth_date": "None",
         "sex": _sex,
-        "market_discription": "None",
+        "market_description": "None",
         "browsing_history": [],
         "cart": [],
         "notifications": [],
