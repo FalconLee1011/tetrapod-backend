@@ -7,9 +7,12 @@ from flask_mail import Message
 from ..lib.config import getConfig
 from threading import Thread
 
+from ._fileHandler import _fileHandler
+
 _LOGGER = logging.getLogger()
 
 MODULE_PREFIX = '/auth'
+FILE_HANDLER = _fileHandler()
 account_MODEL = account.Account()
 token_MODEL = token.Token()
 verification_MODEL = verification.Verification()
