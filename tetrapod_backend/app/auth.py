@@ -42,18 +42,18 @@ def check_email(_email):
 @app.route(f"{MODULE_PREFIX}/editaccount",methods=["POST"])
 @account.Account.validate
 def _edit_account(*args,**kwargs):    
-    data = request.get_json()
+    data = request.form
     _account_avator = data.get("account_avator","")
-    _First_name = data.get("first name","")
-    _Last_name = data.get("last name","")
-    _Nick_name = data.get("nick name","")
+    _First_name = data.get("first_name","")
+    _Last_name = data.get("last_name","")
+    _Nick_name = data.get("nick_name","")
     _password = data.get("password","")
-    _confirm_password = data.get("confirm password","")
+    _confirm_password = data.get("confirm_password","")
     _email = data.get("e-mail","")
     _phone = data.get("phone","")
-    _birth_date = data.get("birth date","")
+    _birth_date = data.get("birth_date","")
     _sex = data.get("sex","")
-    _description = data.get("market description","")
+    _description = data.get("market_description","")
         
     #password check 英數，至少6碼至多20碼
     pattern = r"[a-zA-Z0-9]+$"
@@ -154,7 +154,7 @@ def _register():
 
     #make json
     new_user = {
-        "account_avator": None,
+        "account_avator": "None",
         "first_name": _First_name,
         "last_name":  _Last_name,
         "nick_name": _Nick_name,
@@ -162,14 +162,14 @@ def _register():
         "password": _password,
         "e-mail": _email,
         "phone": _phone,
-        "birth_date": None,
+        "birth_date": "None",
         "sex": _sex,
-        "market_discription": None,
-        "browsing_history": None,
-        "cart": None,
-        "notifications": None,
-        "star": None,
-        "knockroom": None
+        "market_discription": "None",
+        "browsing_history": [],
+        "cart": [],
+        "notifications": [],
+        "star": 0,
+        "knockroom": []
     }
 
     req = account_MODEL.new(new_user)
@@ -241,7 +241,7 @@ def _check_email():
             verification_MODEL.new({"account":account_req["account"],"verification_code":_verification_code})
         else:
             verification_MODEL.update({"account":account_req["account"]},{"$set":{"verification_code":_verification_code}})
-        return make_response(jsonify("mail sended"),200)
+        return make_response(jsonify({"msg": "mail sended", "status": "ok"}),200)
     return make_response(jsonify("E-mail not exist"),401)
 
 @app.route(f'{MODULE_PREFIX}/check_verification_code', methods=["POST"])

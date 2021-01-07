@@ -1,31 +1,35 @@
-from ..db.models import merchant, account
+from ..db.models import merchant, account, order
 from ..lib import config
 from .app import *
 from bson.objectid import ObjectId
 from ._fileHandler import _fileHandler
 import jwt, time, json, re, datetime
 from flask import send_file
-import pymongo
+import pymongo, logging
 
 MODULE_PREFIX = '/merchant'
 MODEL = merchant.Merchant()
+MODEL_ORDER = order.Order()
 FILE_HANDLER = _fileHandler()
+_LOGGER = logging.getLogger()
+CONF = config.getConfig()
+
 
 @app.route(f"{MODULE_PREFIX}/upload",methods=["POST"])
 @account.Account.validate
 def _upload_merchant(*args,**kwargs):
     photos = FILE_HANDLER.save(files=request.files.getlist("files[]"))
     # return make_response(jsonify("SERVICE MAINTENANCE"), 503)
-    _price = request.form.get('price',None)
+    _price = request.form.get('price',0)
     _photo = photos
-    _merchant_name = request.form.get('name',None)
-    _count = request.form.get('quantity',None)
-    _discription = request.form.get('intro',None)
+    _merchant_name = request.form.get('name',"")
+    _count = request.form.get('quantity',0)
+    _discription = request.form.get('intro',"")
     _is_bidding = request.form.get('bidding_or_not',False)
-    _status = request.form.get('new_or_not',None)
-    _bidding_price = request.form.get('bidding_price',None)
-    _bidding_price_perbid = request.form.get('bidding_price_perbid',None)
-    _bidding_endtime = request.form.get('bidding_endtime',None)
+    _status = request.form.get('new_or_not',"")
+    _bidding_price = request.form.get('bidding_price',0)
+    _bidding_price_perbid = request.form.get('bidding_price_perbid',0)
+    _bidding_endtime = request.form.get('bidding_endtime',0)
 
     _account=kwargs['account']
 
@@ -64,18 +68,18 @@ def _upload_merchant(*args,**kwargs):
     #make json
     _is_bidding = True if(_is_bidding.lower() == "true") else False
     form = {
-        "price": _price,
+        "price": int(_price),
         "photo": _photo,
         "merchant_name": _merchant_name,
-        "count": _count,
+        "count": int(_count),
         "discription": _discription,
         "is_bidding": bool(_is_bidding),
-        "bidding_price": _bidding_price,
-        "bidding_price_perbid": _bidding_price_perbid,
+        "bidding_price": int(_bidding_price),
+        "bidding_price_perbid": int(_bidding_price_perbid),
         "bidding_endtime": _bidding_endtime,
         "account": _account,
         "status": _status,
-        "winner_id": None
+        "winner_id": ""
     }
     MODEL = merchant.Merchant()
     MODEL.new(form)
@@ -202,6 +206,21 @@ def _get_merchant():
         if res != [None]: return make_response({"merchants": res}, 200)
         else: return make_response({"merchants": None}, 404)
 
+@app.route(f"{MODULE_PREFIX}/search", methods=["POST"])
+def _search():
+    keywords = request.get_json().get("keyword", None)
+    _keywords = ""
+    if(keywords):
+        # _keywords = []
+        # for keyword in keywords.split(" "): 
+            # _keywords.append(keyword)
+        _keywords = keywords.replace(" ", "|")
+        _LOGGER.debug(keywords)
+        _LOGGER.debug(_keywords)
+        res = MODEL.getMultiple({"merchant_name": {"$regex": _keywords}})
+        return make_response({"merchants": res}, 200)
+    return make_response({"keys": _keywords}, 503)
+
 @app.route(f"{MODULE_PREFIX}/getall", methods=["GET"])
 def _get_allmerchants():
     mID = request.args.get("id")
@@ -213,27 +232,30 @@ def _get_allmerchants():
 @account.Account.validate
 def _add_to_cart(*args,**kwargs):
     _act = kwargs['account']
-    mID = request.get_json().get('merchant id',None)
-    _cart = account.Account().get({'account':_act,'cart':{"$type":"array"}})
-    _ct = 1
-    if _cart != None: #cart type correct
-        _ce = account.Account().get({'$and':[{'account':_act},{'cart':{"$elemMatch":{"merchant_id":mID}}}]})
-        if _ce == None:# new
-            account.Account().update({"account":_act},{'$push': {'cart': {"merchant_id":mID,"merchant_count":1}}})
-        else:# old plus
-            _mct = _ce['cart']
-            for i in _mct:
-                try:
-                    if i['merchant_id'] == mID:
-                        _ct = i['merchant_count']
-                        break
-                except:
-                    return make_response({"Error": "db type error"}, 404)
-            _ct += 1
-            account.Account().update({"account":_act,"cart.merchant_id":mID},{'$set': {'cart.$.merchant_count': _ct}})
-    else:
-        account.Account().update({"account":_act},{'$set': {'cart':[{"merchant_id":mID,"merchant_count":1}]}})
-    return make_response({"merchant_id": mID,"merchant_count":_ct}, 200)
+    mID = request.get_json().get('merchant_id',None)
+    _accountEntity = account.Account().get({'account':_act})
+    _cart = _accountEntity.get("cart", None)
+    merchantToBeAdd = MODEL.getOne({"_id": ObjectId(mID)})
+    if _cart != None: 
+        existingObj = next((merchant for merchant in _cart if merchant["merchant_id"] == mID), False)
+        if(existingObj): # ADDING EXISTING COUNT
+            existingMarchantIndex = _cart.index(existingObj)
+            _cart[existingMarchantIndex]["merchant_count"] += 1
+        else: # ADDING NEW IF NOT EXIST
+            if(merchantToBeAdd):
+                _cart.append(
+                    {
+                        "merchant_id": mID, 
+                        "merchant_count": 1
+                    }
+                )
+            else: 
+                return make_response({"status": "Merchant does not exist"}, 400)
+    account.Account().update(
+        { "account": _act }, 
+        { "$set": { "cart": _cart } }
+    )
+    return make_response({"status": "added", "merchant": merchantToBeAdd}, 200)
 
 @app.route(f"{MODULE_PREFIX}/bidding/bid",methods=["POST"])
 @account.Account.validate
@@ -312,28 +334,45 @@ def _get_winner(*args,**kwargs):
 @account.Account.validate
 def _get_cart(*args,**kwargs):
     _act = kwargs['account']
-    _cart = account.Account().get({'account':_act,'cart':{"$type":"array"}})
-    _getmulct = []
-    _getcount = []
-    if _cart != None:# cart type correct
-        for i in _cart['cart']:
-            if(type(i)!=dict):
-                account.Account().update(_act,{'$pull':{'cart': i}})
-            else:
-                try:
-                    _getmulct.append(ObjectId(i['merchant_id']))
-                    _getcount.append(i['merchant_count'])
-                except:
-                    pass
-        if len(_getmulct)!=0:
-            try:# get merchant and set count
-                res = MODEL.getMultiple({"_id":{"$in":_getmulct}})
-            except:
-                return make_response({"Error": "db type error"}, 404)
-            for zz in range(0,len(res)):
-                res[zz]['merchant_count'] = _getcount[zz]
-            return make_response({"merchants":res},200)    
+    _cart = account.Account().get({'account':_act}).get("cart", None)
+    _LOGGER.debug('=========== CART ===========')
+    _LOGGER.debug(_cart)
+    _LOGGER.debug('=========== CART ===========')
+    _rtnDoc = []
+    if(_cart != None):
+        for merch in _cart:
+            mID = merch.get('merchant_id')
+            merchQuery = requests.get(
+                f"http://localhost:{CONF.get('app', {}).get('port')}/merchant/get?id={mID}"
+            ).content
+            merchObj = json.loads(merchQuery).get("merchant")
+            merchObj["merchant_id"] = mID
+            merchObj["merchant_count"] = merch.get('merchant_count')
+            _rtnDoc.append(merchObj)
+        return make_response({"merchants": _rtnDoc}, 200)    
     return make_response({"merchants": None}, 200)
+
+@app.route(f"{MODULE_PREFIX}/get-cart-by-market", methods=["POST"])
+@account.Account.validate
+def _get_cart_by_market(*args,**kwargs):
+    _act = kwargs['account']
+    _target = request.get_json().get("market", "")
+    _cart = account.Account().get({'account':_act}).get("cart", None)
+    _rtnDoc = []
+    if(_cart != None):
+        for merch in _cart:
+            mID = merch.get('merchant_id')
+            merchQuery = requests.get(
+                f"http://localhost:{CONF.get('app', {}).get('port')}/merchant/get?id={mID}"
+            ).content
+            merchObj = json.loads(merchQuery).get("merchant")
+            if(merchObj.get("account") != _target): continue
+            merchObj["merchant_id"] = mID
+            merchObj["merchant_count"] = merch.get('merchant_count')
+            _rtnDoc.append(merchObj)
+        return make_response({"merchants": _rtnDoc}, 200)    
+    return make_response({"merchants": None}, 200)
+
 
 @app.route(f"{MODULE_PREFIX}/delete_cart", methods=["POST"])
 @account.Account.validate
@@ -350,8 +389,8 @@ def _del_cart(*args,**kwargs):
 @account.Account.validate
 def _edit_cart(*args,**kwargs): # can't tell whether merchant in cart
     _act = kwargs['account']
-    mID = request.get_json().get('merchant id',None)
-    mcount = int(request.get_json().get('merchant count',None))
+    mID = request.get_json().get('merchant_id',None)
+    mcount = int(request.get_json().get('merchant_count',None))
     _gtm = MODEL.getOne({'_id':ObjectId(mID)})
     _getmercount = int(_gtm['count'])
     _getmerbid = _gtm['is_bidding']
