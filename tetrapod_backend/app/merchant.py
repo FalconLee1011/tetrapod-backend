@@ -355,7 +355,7 @@ def _edit_cart(*args,**kwargs): # can't tell whether merchant in cart
         else:
             try:
                 account.Account().update({'account':_act,'cart.merchant_id':mID},{"$set":{'cart.$.merchant_count':mcount}})
-                return make_response({"merchant_id":mID,"merchant count":mcount}, 200)
+                return make_response({"merchant id":mID,"merchant count":mcount}, 200)
             except Exception as e:
                 return make_response({"Error":"db error"}, 404)
     return make_response({"Error":"nothing happend"}, 200)
