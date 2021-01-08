@@ -18,64 +18,48 @@ CONF = config.getConfig()
 @app.route(f"{MODULE_PREFIX}/upload",methods=["POST"])
 @account.Account.validate
 def _upload_merchant(*args,**kwargs):
-    photos = FILE_HANDLER.save(files=request.files.getlist("files[]"))
     # return make_response(jsonify("SERVICE MAINTENANCE"), 503)
-    _price = request.form.get('price',0)
-    _photo = photos
+    _price = int(request.form.get('price',0))
+    _photo = FILE_HANDLER.save(files=request.files.getlist("files[]"))
     _merchant_name = request.form.get('name',"")
-    _count = request.form.get('quantity',0)
+    _count = int(request.form.get('quantity',0))
     _discription = request.form.get('intro',"")
     _is_bidding = request.form.get('bidding_or_not',False)
+    _is_bidding = True if(_is_bidding.lower() == "true") else False
     _status = request.form.get('new_or_not',"")
-    _bidding_price = request.form.get('bidding_price',0)
-    _bidding_price_perbid = request.form.get('bidding_price_perbid',0)
-    _bidding_endtime = request.form.get('bidding_endtime',0)
-
+    _bidding_price = int(request.form.get('bidding_price',0))
+    _bidding_price_perbid = int(request.form.get('bidding_price_perbid',0))
+    _bidding_endtime = int(request.form.get('bidding_endtime',0))
     _account=kwargs['account']
 
-    match = re.match(r"[1-9][0-9]*", _price)
-    if not(match):
+    if _price < 1:
         return make_response(jsonify({"status": '價格異常'}), 422)
 
-    match = re.match(r"[1-9][0-9]*", _count)
-    if not(match):
+    if _photo == None:
+        _photo = []
+    
+    if _count < 1:
         return make_response(jsonify({"status": '數量異常'}), 422)
 
-    # match = re.match(r"[0-1]", _is_bidding)
-    # if not(match):
-    #     return make_response(jsonify({"status": '競標狀態異常'}), 422)
+    if _is_bidding == True:
+        if _bidding_price < 1:
+            return make_response(jsonify({"status": '競標價格異常'}), 422)
+        
+        if _bidding_price_perbid < 1:
+            return make_response(jsonify({"status": '每標價格異常'}), 422)
+        
+        if _bidding_endtime - int(datetime.datetime.now().timestamp()) < 86400:
+            return make_response(jsonify({"status": '競標時間異常'}), 422)
 
-    # elif(_is_bidding=='1'):
-    #     match = re.match(r"[1-9][0-9]*", _bidding_price)
-    #     if not(match):
-    #         return make_response(jsonify({"status": '競標價格異常'}), 422)
-
-    #     match = re.match(r"[1-9][0-9]*", _bidding_price_perbid)
-    #     if not(match):
-    #         return make_response(jsonify({"status": '每標價格異常'}), 422)
-
-    #     try:
-    #         match_bidding_endtime = datetime.datetime.strptime(_bidding_endtime,"%Y-%m-%d%H:%M")
-    #         _now = datetime.datetime.now()
-    #         if(match_bidding_endtime < _now):
-    #             return make_response(jsonify({"status": '競標時間異常'}), 422)
-    #     except:
-    #         return make_response(jsonify({"status": '競標時間異常'}), 422)
-    # else:
-    #     _bidding_price = None
-    #     _bidding_price_perbid = None
-    #     _bidding_endtime = None
-    #make json
-    _is_bidding = True if(_is_bidding.lower() == "true") else False
     form = {
-        "price": int(_price),
+        "price": _price,
         "photo": _photo,
         "merchant_name": _merchant_name,
-        "count": int(_count),
+        "count": _count,
         "discription": _discription,
-        "is_bidding": bool(_is_bidding),
-        "bidding_price": int(_bidding_price),
-        "bidding_price_perbid": int(_bidding_price_perbid),
+        "is_bidding": _is_bidding,
+        "bidding_price": _bidding_price,
+        "bidding_price_perbid": _bidding_price_perbid,
         "bidding_endtime": _bidding_endtime,
         "account": _account,
         "status": _status,
@@ -90,7 +74,7 @@ def _upload_merchant(*args,**kwargs):
 @account.Account.validate
 def _delete_merchant():
     data = request.get_json()
-    _merchant_id = data.get("merchant id", "")
+    _merchant_id = data.get("merchant_id", "")
     Err = ""
     if _merchant_id == "":
         Err = "no merchant_id"
@@ -103,74 +87,36 @@ def _delete_merchant():
 @app.route(f"{MODULE_PREFIX}/edit_merchant", methods=["POST"])
 @account.Account.validate
 def _edit_merchant(*args,**kwargs):
-    data = request.get_json()
-    _merchant_id = data.get("merchant id", "")
-    _price = data.get('price',None)
-    _photo = data.get('photo',None)
-    _merchant_name = data.get('merchant_name',None)
-    _count = data.get('count',None)
-    _discription = data.get('discription',None)
-    _is_bidding = data.get('is_bidding',None)
-    _bidding_price = data.get('bidding_price',None)
-    _bidding_price_perbid = data.get('bidding_price_perbid',None)
-    _bidding_endtime = data.get('bidding_endtime',None)
-    _account = kwargs['account']
+    data = request.form
+    _merchant_id = data.get("merchant_id", "")
+    _merchant = MODEL.getOne({"_id": ObjectId(_merchant_id)})
+    _price = int(data.get('price', _merchant["price"]))
+    _photo = FILE_HANDLER.save(files=request.files.getlist("files[]"))
+    if _photo == None:
+        _photo = _merchant["photo"]
+    _merchant_name = data.get('name',_merchant["merchant_name"])
+    _count = int(data.get('quantity',_merchant["count"]))
+    _discription = data.get('intro',_merchant["discription"])
 
     Err = ""
     if _merchant_id == "":
         Err = "no merchant_id"
         return make_response(jsonify({"status": Err}),200)
 
-    match = re.match(r"[1-9][0-9]*", _price)
-    if not(match):
+    if _price < 1:
         return make_response(jsonify({"status": '價格異常'}), 422)
-
-    match = re.match(r"[1-9][0-9]*", _count)
-    if not(match):
+    
+    if _count < 1:
         return make_response(jsonify({"status": '數量異常'}), 422)
-
-    match = re.match(r"[0-1]", _is_bidding)
-    if not(match):
-        return make_response(jsonify({"status": '競標狀態異常'}), 422)
-
-    elif(_is_bidding=='1'):
-        match = re.match(r"[1-9][0-9]*", _bidding_price)
-        if not(match):
-            return make_response(jsonify({"status": '競標價格異常'}), 422)
-
-        match = re.match(r"[1-9][0-9]*", _bidding_price_perbid)
-        if not(match):
-            return make_response(jsonify({"status": '每標價格異常'}), 422)
-
-        # Note: Disabled for demo
-        # try:
-        #     match_bidding_endtime = datetime.datetime.strptime(_bidding_endtime,"%Y-%m-%d%H:%M")
-        #     _now = datetime.datetime.now()
-        #     if(match_bidding_endtime < _now):
-        #         return make_response(jsonify({"status": '競標時間異常'}), 422)
-        # except:
-        #     return make_response(jsonify({"status": '競標時間異常'}), 422)
-    else:
-        _bidding_price = None
-        _bidding_price_perbid = None
-        _bidding_endtime = None
-        _winner_id = None    
-        #make json
+    
+    #make json
     form = {
         "price":_price,
         "photo":_photo,
         "merchant_name":_merchant_name,
         "count":_count,
         "discription":_discription,
-        "is_bidding":_is_bidding,
-        "bidding_price":_bidding_price,
-        "bidding_price_perbid":_bidding_price_perbid,
-        "bidding_endtime":_bidding_endtime,
-        "account":_account,
-        "winner_id":_winner_id
     }
-    
-    MODEL = merchant.Merchant()
     f = {"_id": ObjectId(_merchant_id)}
     MODEL.update(f, {"$set":form})
     return make_response(jsonify("edit merchant success"),200)
@@ -262,8 +208,8 @@ def _add_to_cart(*args,**kwargs):
 def _bid(*args,**kwargs):
     data = request.get_json()
     _account = kwargs['account']
-    _merchant_id = data.get("merchant id", None)
-    _bid_amount = int(data.get("bid amount", None))
+    _merchant_id = data.get("merchant_id", None)
+    _bid_amount = int(data.get("bid_amount", None))
     if _merchant_id == "":
         Err = "no merchant_id"
         return make_response(jsonify({"status": Err}),200)
@@ -286,7 +232,7 @@ def _bid(*args,**kwargs):
 @account.Account.validate
 def _bid_update(*args,**kwargs):
     data = request.get_json()  
-    _merchant_id = data.get("merchant id", None)
+    _merchant_id = data.get("merchant_id", None)
     if _merchant_id == "":
         Err = "no merchant_id"
         return make_response(jsonify({"status": Err}),200)
@@ -299,7 +245,7 @@ def _bid_update(*args,**kwargs):
 def _get_winner(*args,**kwargs):
     def _is_expired(_cmp):
         _now = datetime.datetime.now().timestamp()
-        if float(_cmp) < float(_now):
+        if int(_cmp) < int(_now):
             return False
         else:
             return True
@@ -307,11 +253,10 @@ def _get_winner(*args,**kwargs):
     def _add(_af, _merchant_id):
         _winner = account.Account().get(_af)
         if _winner["cart"] == None:
-            account.Account().update(_af, {"$set": {'cart':[{"merchant_id":_merchant_id, "merchant_count":1}]}})
-        else:
-            account.Account().update(_af, {"$push": {"merchant_id":_merchant_id, "merchant_count":1}})
+            _winner["cart"] = []
+        account.Account().update(_af, {"$push": {"merchant_id":_merchant_id, "merchant_count":1}})
     data = request.get_json()
-    _merchant_id = data.get("merchant id", None)
+    _merchant_id = data.get("merchant_id", None)
     if _merchant_id == "":
         Err = "no merchant_id"
         return make_response(jsonify({"status": Err}),200)
@@ -321,10 +266,12 @@ def _get_winner(*args,**kwargs):
         return make_response({"status": "nobody bid"}, 200)
     _af = {"account": _merchant_data["winner_id"]}
     _winner = account.Account().get(_af)
+    #一口價
     if(int(_merchant_data["bidding_price"]) >= int(_merchant_data["price"])):
         _add(_af, _merchant_id)
         return make_response({"winner": _winner["account"]}, 200)
     _end_time = _merchant_data["bidding_endtime"]
+    #超時
     if _is_expired(_end_time):
         return make_response({"status": "not yet"}, 200)
     _add(_af, _merchant_id)
@@ -378,7 +325,7 @@ def _get_cart_by_market(*args,**kwargs):
 @account.Account.validate
 def _del_cart(*args,**kwargs):
     _act = kwargs['account']
-    mID = request.get_json().get('merchant id',None)
+    mID = request.get_json().get('merchant_id',None)
     try:
         account.Account().update({'account':_act,'cart.merchant_id':mID},{"$pull":{'cart':{"merchant_id":mID}}})
     except Exception as e:
@@ -408,7 +355,7 @@ def _edit_cart(*args,**kwargs): # can't tell whether merchant in cart
         else:
             try:
                 account.Account().update({'account':_act,'cart.merchant_id':mID},{"$set":{'cart.$.merchant_count':mcount}})
-                return make_response({"merchant id":mID,"merchant count":mcount}, 200)
+                return make_response({"merchant_id":mID,"merchant count":mcount}, 200)
             except Exception as e:
                 return make_response({"Error":"db error"}, 404)
     return make_response({"Error":"nothing happend"}, 200)
