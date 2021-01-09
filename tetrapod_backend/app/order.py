@@ -5,11 +5,12 @@ from bson.objectid import ObjectId
 from ._fileHandler import _fileHandler
 import jwt, time, json, re, datetime
 from flask import send_file
-import pymongo, logging
+import pymongo, logging, bson
 
 MODULE_PREFIX = '/merchant/order'
 MODEL = merchant.Merchant()
 MODEL_ORDER = order.Order()
+MODEL_ACCOUNT = account.Account()
 FILE_HANDLER = _fileHandler()
 _LOGGER = logging.getLogger()
 CONF = config.getConfig()
@@ -180,3 +181,32 @@ def _update_order(*args,**kwargs): # can't tell whether merchant in cart
     )
 
     return make_response({"status": act}, 200)
+
+# {
+#   "merchants":[
+#     {"merchantID": "c0w0ec3123", "star": 4.5, "comments": "bla bla bla"},
+#     {"merchantID": "c0w0ec5125", "star": 5.0, "comments": "bla bla bla"}
+#   ],
+#   "order": 4.5
+# }
+
+@app.route(f"{MODULE_PREFIX}/star", methods=["POST"])
+@account.Account.validate
+def _star(*args,**kwargs): 
+    _account = kwargs['account']
+    _rq = request.get_json()
+    _merchants = _rq.get("merchants", [])
+    _order_star = float(_rq.get("order", -1))
+    #update merchant star
+    for data in _merchants:
+        MODEL.update({"_id": ObjectId(data["merchantID"])}, {"$push": {"star":{"star": data["star"], "comments": data["comments"]}}})
+
+    #update seller star
+    _seller = MODEL.getOne({"_id": ObjectId(_merchants[0]["merchantID"])})["account"]
+    _star = MODEL_ACCOUNT.get({"account":_seller})["star"]
+    _rate = _star["star"] * _star["count"] + _order_star
+    _count = _star["count"] + 1
+    _rate = _rate / _count
+    _new ={"star": _rate, "count": _count}
+    MODEL_ACCOUNT.update({"account":_seller}, {"$set":{"star": _new}})
+    return make_response({"status": "success"}, 200)
