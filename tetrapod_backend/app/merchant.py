@@ -136,18 +136,53 @@ def _get_merchant():
 
 @app.route(f"{MODULE_PREFIX}/search", methods=["POST"])
 def _search():
-    keywords = request.get_json().get("keyword", None)
-    _keywords = ""
-    if(keywords):
-        # _keywords = []
-        # for keyword in keywords.split(" "): 
-            # _keywords.append(keyword)
-        _keywords = keywords.replace(" ", "|")
-        _LOGGER.debug(keywords)
-        _LOGGER.debug(_keywords)
-        res = MODEL.getMultiple({"merchant_name": {"$regex": _keywords}})
+
+    def str2bool(bl):
+        if(str(bl).lower() == "true"): return True
+        elif(str(bl).lower() == "false"): return False
+        else: raise "Input is not a boolean string"
+
+    data = request.get_json()
+
+    keyword = request.get_json().get("keyword", None)
+    rating = request.get_json().get("rating", None)
+    isGeneral = request.get_json().get("isGeneral", None)
+    isBidding = request.get_json().get("isBidding", None)
+    minPrice = request.get_json().get("minPrice", None)
+    maxPrice = request.get_json().get("maxPrice", None)
+    isNew = request.get_json().get("isNew", None)
+    old = request.get_json().get("old", None)
+
+    search = {}
+    
+    if ( keyword ):
+        keyword = keyword.replace(" ", "|")
+        search["merchant_name"] = { "$regex": keyword }
+    # if ( rating ):
+        # search["rating"] = rating
+    if ( isGeneral != None or isBidding != None ):
+        if(isGeneral and not isBidding): search["is_bidding"] = False
+        elif(not isGeneral and isBidding): search["is_bidding"] = True
+
+    if ( isNew != None or old != None ):
+        if(isNew and not old): search["status"] = "new"
+        elif(not isNew and old): search["status"] = "old"
+
+    if ( minPrice != None or maxPrice != None ):
+        if( minPrice and maxPrice ):
+            search["price"] = { "$gte": int(minPrice), "$lte": int(maxPrice) }
+        elif( minPrice and not maxPrice ):
+            search["price"] = { "$gte": int(minPrice) }
+        elif( not minPrice and maxPrice ):
+            search["price"] = { "$lte": int(maxPrice) }
+    
+    _LOGGER.debug(f"\033[38;5;10m searching --------> {data}")
+
+    res = MODEL.getMultiple(search)
+    if(res):
         return make_response({"merchants": res}, 200)
-    return make_response({"keys": _keywords}, 503)
+    
+    return make_response("nil", 404)
 
 @app.route(f"{MODULE_PREFIX}/getall", methods=["GET"])
 def _get_allmerchants():
