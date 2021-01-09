@@ -1,7 +1,7 @@
 from ..db.models import account, token, verification
 from .app import *
 from ..lib import config
-import  re, jwt, random, string, logging
+import re, jwt, random, string, logging
 from time import time
 from flask_mail import Message
 from ..lib.config import getConfig
@@ -46,7 +46,11 @@ def check_email(_email):
 @account.Account.validate
 def _edit_account(*args,**kwargs):    
     data = request.form
-    _account_avator = FILE_HANDLER.save(files=request.files.getlist("account_avator[]"))[0]
+    _account_avator = ""
+    try: _account_avator = FILE_HANDLER.save(files=request.files.getlist("account_avator[]"))[0]
+    except: _LOGGER.warning("NO PHOTO")
+    # _LOGGER.debug(f"\033[38;5;10m PHOTO -------> {_account_avator}")
+    # return make_response(jsonify({"photos": _account_avator}), 503)
     _First_name = data.get("first_name","")
     _Last_name = data.get("last_name","")
     _Nick_name = data.get("nick_name","")
@@ -59,17 +63,17 @@ def _edit_account(*args,**kwargs):
     _description = data.get("market_description","")
         
     #password check 英數，至少6碼至多20碼
-    pattern = r"[a-zA-Z0-9]+$"
-    DP = _different_password(_password, _confirm_password)
-    LC = _len_check(_password)
-    match = _is_match(_password, pattern)
-    if not (DP and LC and match):
-        Err = "password format error"
-        return make_response(jsonify({"status": Err}), 200)
+    # pattern = r"[a-zA-Z0-9]+$"
+    # DP = _different_password(_password, _confirm_password)
+    # LC = _len_check(_password)
+    # match = _is_match(_password, pattern)
+    # if not (DP and LC and match):
+        # Err = "password format error"
+        # return make_response(jsonify({"status": Err}), 200)
     
     #e-mail check
     req = account_MODEL.get({"e-mail":_email})
-    if req != None:
+    if req != None and req.get("account") != kwargs['account']:
         Err = "e-mail already exists"
         return make_response(jsonify({"status": Err}), 200)
     pattern = r"^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$"

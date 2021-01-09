@@ -5,3 +5,4 @@ __pycache__
 *.log
 filecache/
 .DS_Store
+gunicorn.conf.py

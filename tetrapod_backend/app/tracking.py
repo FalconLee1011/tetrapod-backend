@@ -1,34 +1,41 @@
 from ..db.models import account, merchant
 from .app import *
 from bson.objectid import ObjectId
+import jwt, logging
 
 MODULE_PREFIX = '/tracking'
 MODEL_account = account.Account()
 MODEL_merchant = merchant.Merchant()
 
-@app.route(f"{MODULE_PREFIX}/browsing_history",methods=["GET"])
+_LOGGER = logging.getLogger()
+
+CONF = config.getConfig()
+
+@app.route(f"{MODULE_PREFIX}/browsing-history/get",methods=["GET"])
 @account.Account.validate
-def _browsing_history(*args,**kwargs):
+def _get_browsing_history(*args,**kwargs):
     _account = kwargs['account']
-    _account = MODEL_account.get({"account":_account})
-    _bsh = _account['browsing_history']
-    r = []
-    for i in _bsh:
-        if(type(i)!=dict):
-            MODEL_account.update(_account,{'$pull':{'browsing_history': i}})
-        else:
-            try:
-                r.append([i['merchant_id'],i['date']])
-            except:
-                # MODEL_account.update(_account,{'$pull':{'browsing_history': i}})
-                return make_response({"Error": "db type error"}, 404)
-    if  len(r) != 0:
-        r = sorted(r,key = lambda x:x[1],reverse=True)
-        res = []
-        for i in r:
-            try:
-                res.append(MODEL_merchant.getOne({"_id":ObjectId(i[0])}))
-            except:
-                return make_response({"Error": "db type error"}, 404)
-        return make_response({"browsing_history": res}, 200)
-    else: return make_response({"browsing_history": None}, 404)
+    history = MODEL_account.get({"account":_account}, _proj=["browsing_history"])
+    return make_response({"history": history}, 200)
+
+@app.route(f"{MODULE_PREFIX}/browsing-history/push",methods=["GET"])
+def _push_browsing_history():
+    token = request.headers.get('token', None)
+    mID = request.args.get("merchantid")
+    _account = jwt.decode(str.encode(token), CONF.get("app", {}).get("secret"), algorithms=["HS256"]).get("account")
+    history = MODEL_account.get({"account":_account}, _proj=["browsing_history"]).get("browsing_history")
+    try: history.remove(mID)
+    except: _LOGGER.debug(f"HISTORY DOES NOT EXIST")
+    history.append(mID)
+    # _LOGGER.debug(f"\033[38;5;10m HISTORY UPDATED --------> {history}")
+
+    MODEL_account.update(
+        { "account": _account },
+        {
+            "$set": {
+                "browsing_history": history
+            }
+        }
+    )
+    return "updated"
+    

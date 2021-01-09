@@ -41,7 +41,7 @@ def _createRoom():
     if(receiver == account):
         return make_response({"error": "are you this lone?"}, 400)
     
-    existing_room = MODEL.get({"accounts": [account, receiver]})
+    existing_room = MODEL.get({"accounts": {"$all": [account, receiver]}})
 
     if(existing_room != None):
         return make_response({"status": "exist", "room": existing_room.get("_id")}, 200)

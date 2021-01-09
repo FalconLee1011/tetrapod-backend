@@ -50,7 +50,7 @@ def _new_order(*args,**kwargs): # can't tell whether merchant in cart
     order["price"] = price
 
     _ins = MODEL_ORDER.new(order)
-    _LOGGER.debug(_ins)
+    # _LOGGER.debug(_ins)
 
     account.Account().update(
         { "account": _account }, 
@@ -110,26 +110,64 @@ def _update_order(*args,**kwargs): # can't tell whether merchant in cart
     orderID = rq.get("orderID", "")
     cState = 0
     _order = MODEL_ORDER.getOne({"_id": ObjectId(orderID)})
-    _LOGGER.debug(f" \033[38;5;43m --------> doing {rq.get('action')} ON {_order}")
+    # _LOGGER.debug(f" \033[38;5;43m --------> doing {rq.get('action')} ON {_order}")
     _status = _order.get("status")
-    _LOGGER.debug(f" \033[38;5;43m STATUS --------> {_status}")
+    # _LOGGER.debug(f" \033[38;5;43m STATUS --------> {_status}")
     approve = False
-    if(act == 'cfn'):
+
+    if(act == 'rm'):
+        if(_account != _order.get('market')): return make_response("action is not allowed", 403)
         _state = next((state for state in _status if state["status"] == "confirmed"), {})
-        _LOGGER.debug(f" \033[38;5;43m UPDATING --------> {_state}")
-        cState = _status.index(_state)
-        _status[cState]["timestamp"] = time.time()
-        _status[cState]["is_done"] = True
-        approve = True
-    elif(act == 'rm'):
-        _state = next((state for state in _status if state["status"] == "confirmed"), {})
-        _LOGGER.debug(f" \033[38;5;43m UPDATING --------> {_state}")
+        # _LOGGER.debug(f" \033[38;5;43m UPDATING --------> {_state}")
         cState = _status.index(_state)
         _status[cState]["timestamp"] = time.time()
         _status[cState]["is_done"] = True
         _status[cState]["status"] = "canceled"
+    
+    elif(act == 'ship'):
+        if(_account != _order.get('market')): return make_response("action is not allowed", 403)
+        _state = next((state for state in _status if state["status"] == "contacted"), {})
+        # _LOGGER.debug(f" \033[38;5;43m UPDATING --------> {_state}")
+        cState = _status.index(_state)
+        _status[cState]["timestamp"] = time.time()
+        _status[cState]["is_done"] = True
+        _status[cState]["status"] = "contacted"
+
+        _state = next((state for state in _status if state["status"] == "shipping"), {})
+        cState = _status.index(_state)
+        _status[cState]["timestamp"] = time.time()
+        _status[cState]["is_done"] = True
+        _status[cState]["status"] = "shipping"
+
+    elif(act == 'cfn'):
+        if(_account != _order.get('market')): return make_response("action is not allowed", 403)
+        _state = next((state for state in _status if state["status"] == "confirmed"), {})
+        # _LOGGER.debug(f" \033[38;5;43m UPDATING --------> {_state}")
+        cState = _status.index(_state)
+        _status[cState]["timestamp"] = time.time()
+        _status[cState]["is_done"] = True
+        approve = True
+
+    elif(act == 'doneShipping'):
+        if(_account != _order.get('market')): return make_response("action is not allowed", 403)
+        _state = next((state for state in _status if state["status"] == "doneShipping"), {})
+        # _LOGGER.debug(f" \033[38;5;43m UPDATING --------> {_state}")
+        cState = _status.index(_state)
+        _status[cState]["timestamp"] = time.time()
+        _status[cState]["is_done"] = True
+        _status[cState]["status"] = "doneShipping"
+
+    elif(act == 'doneGatering'):
+        if(_account != _order.get('buyer')): return make_response("action is not allowed", 403)
+        _state = next((state for state in _status if state["status"] == "doneGatering"), {})
+        # _LOGGER.debug(f" \033[38;5;43m UPDATING --------> {_state}")
+        cState = _status.index(_state)
+        _status[cState]["timestamp"] = time.time()
+        _status[cState]["is_done"] = True
+        _status[cState]["status"] = "doneGatering"
+
         
-    _LOGGER.debug(f" \033[38;5;10m ORDER UPDATED --------> {_order}")
+    # _LOGGER.debug(f" \033[38;5;10m ORDER UPDATED --------> {_order}")
     
     update = MODEL_ORDER.update(
         {"_id": ObjectId(orderID)}, 

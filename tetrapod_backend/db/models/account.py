@@ -10,10 +10,10 @@ class Account:
     def __init__(self):
         _LOGGER.info("[init]Account")
         self.model = model.model('account')
-    def get(self,doc):
+    def get(self,doc,_proj=None):
         _LOGGER.info("getting account... ")
         _LOGGER.info(f"{doc}")
-        user = self.model.find_one(doc)
+        user = self.model.find_one(doc, mProject=_proj)
         del user["_id"]
         _LOGGER.info(user)
         return user
