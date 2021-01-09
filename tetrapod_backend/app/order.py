@@ -5,7 +5,7 @@ from bson.objectid import ObjectId
 from ._fileHandler import _fileHandler
 import jwt, time, json, re, datetime
 from flask import send_file
-import pymongo, logging, bson
+import pymongo, logging
 
 MODULE_PREFIX = '/merchant/order'
 MODEL = merchant.Merchant()
@@ -181,14 +181,6 @@ def _update_order(*args,**kwargs): # can't tell whether merchant in cart
     )
 
     return make_response({"status": act}, 200)
-
-# {
-#   "merchants":[
-#     {"merchantID": "c0w0ec3123", "star": 4.5, "comments": "bla bla bla"},
-#     {"merchantID": "c0w0ec5125", "star": 5.0, "comments": "bla bla bla"}
-#   ],
-#   "order": 4.5
-# }
 
 @app.route(f"{MODULE_PREFIX}/star", methods=["POST"])
 @account.Account.validate
