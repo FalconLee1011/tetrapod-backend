@@ -15,6 +15,7 @@ class Merchant:
         _LOGGER.info(f"{doc}")
         rDocument = [self.model.find_one(doc)]
         _LOGGER.info(rDocument)
+        if(rDocument == [None]): return None
         def _map(rDocument):
             rDocument["_id"] = str(rDocument["_id"])
             return rDocument
@@ -25,6 +26,7 @@ class Merchant:
         _LOGGER.info(f"{doc}")
         rDocuments = self.model.find(doc, mSort=sort)
         _LOGGER.info(rDocuments)
+        if(rDocuments == [None]): return None
         def _map(rDocument):
             rDocument["_id"] = str(rDocument["_id"])
             return rDocument

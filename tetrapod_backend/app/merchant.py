@@ -27,10 +27,10 @@ def _upload_merchant(*args,**kwargs):
     _is_bidding = request.form.get('bidding_or_not',False)
     _is_bidding = True if(_is_bidding.lower() == "true") else False
     _status = request.form.get('new_or_not',"")
-    _bidding_price = int(request.form.get('bidding_price',0))
+    # _bidding_price = int(request.form.get('bidding_price',0))
     _bidding_price_perbid = int(request.form.get('bidding_price_perbid',0))
     _bidding_endtime = int(request.form.get('bidding_endtime',0))
-    _account=kwargs['account']
+    _account = kwargs['account']
 
     if _price < 1:
         return make_response(jsonify({"status": '價格異常'}), 422)
@@ -42,8 +42,8 @@ def _upload_merchant(*args,**kwargs):
         return make_response(jsonify({"status": '數量異常'}), 422)
 
     if _is_bidding == True:
-        if _bidding_price < 1:
-            return make_response(jsonify({"status": '競標價格異常'}), 422)
+        # if _bidding_price < 1:
+            # return make_response(jsonify({"status": '競標價格異常'}), 422)
         
         if _bidding_price_perbid < 1:
             return make_response(jsonify({"status": '每標價格異常'}), 422)
@@ -58,7 +58,7 @@ def _upload_merchant(*args,**kwargs):
         "count": _count,
         "discription": _discription,
         "is_bidding": _is_bidding,
-        "bidding_price": _bidding_price,
+        "bidding_price": 0,
         "bidding_price_perbid": _bidding_price_perbid,
         "bidding_endtime": _bidding_endtime,
         "account": _account,
@@ -300,9 +300,6 @@ def _get_winner(*args,**kwargs):
 def _get_cart(*args,**kwargs):
     _act = kwargs['account']
     _cart = account.Account().get({'account':_act}).get("cart", None)
-    _LOGGER.debug('=========== CART ===========')
-    _LOGGER.debug(_cart)
-    _LOGGER.debug('=========== CART ===========')
     _rtnDoc = []
     if(_cart != None):
         for merch in _cart:
@@ -377,3 +374,113 @@ def _edit_cart(*args,**kwargs): # can't tell whether merchant in cart
             except Exception as e:
                 return make_response({"Error":"db error"}, 404)
     return make_response({"Error":"nothing happend"}, 200)
+
+# ----------- socketIO services -----------
+
+IO_MODULE_PREFIX = '/io'
+
+def _token_validation(token):
+    return json.loads(
+        requests.post(
+            f"http://localhost:{CONF.get('app', {}).get('port')}/auth/validate",
+            json = {
+                "token": token
+            }
+        ).content
+    ).get("result")
+    
+@io.on('bidUpdate', namespace=F"{IO_MODULE_PREFIX}")
+def _tests(data):
+    def _is_expired(_cmp):
+        _now = datetime.datetime.now().timestamp()
+        return int(_cmp) < int(_now)
+    
+    def _add(_acc, _merchant_id):
+        _cart = account.Account().get( {'account':_acc}, _proj=["cart"]).get("cart")
+        _LOGGER.debug(f" \033[38;5;70m ON BID UPDATE IN CART --------> {_cart}")
+        _cart.append( {"merchant_id": _merchant_id, "merchant_count": 1} )
+        account.Account().update(
+            { "account": _acc }, 
+            { "$set": { "cart": _cart } }
+        )
+
+    IOsessionID = request.sid
+    token = data.get('token', None)
+    _LOGGER.debug(f" \033[38;5;50m ON BID UPDATE --------> {data}")
+    if(not _token_validation(token)):
+        _LOGGER.debug(f" \033[38;5;10m BID UPDATED --------> invalid token")
+        emit('bidUpdateResult', {"type": "error", "msg": "Invalid Token!"})
+        return
+
+    _account = jwt.decode(str.encode(token), CONF.get("app", {}).get("secret"), algorithms=["HS256"]).get("account")
+    _merchant_id = data.get("merchant_id", None)
+    _bid_amount = int(data.get("bid_amount", None))
+
+    if _merchant_id == "":
+        Err = "no merchant_id"
+        _LOGGER.debug(f" \033[38;5;10m BID UPDATED --------> {Err}")
+        emit('bidUpdateResult', {"type": "error", "msg": Err})
+        return
+
+    if _bid_amount < 1 or _bid_amount > 1000000:
+        Err = "amount error"
+        _LOGGER.debug(f" \033[38;5;10m BID UPDATED --------> {Err}")
+        emit('bidUpdateResult', {"type": "error", "msg": Err})
+        return
+
+    f = {"_id": ObjectId(_merchant_id)}
+    
+    _merchant_data = MODEL.getOne(f)
+    _end_time = _merchant_data["bidding_endtime"]
+    _merchant_name = _merchant_data["merchant_name"]
+
+    #超時
+    if (_is_expired(_end_time)):
+        _LOGGER.debug(f" \033[38;5;10m BID UPDATED --------> _end_time")
+        emit('bidUpdateResult', {"type": "error", "msg": "Time exipred."})
+        return
+
+    # _bidding_price = int(_merchant_data["bidding_price"]) + int(_bid_amount) * int(_merchant_data["bidding_price_perbid"])
+    _bidding_price = int(_merchant_data["bidding_price"]) + int(_bid_amount)
+
+    #一口價
+    if(int(_bidding_price) >= int(_merchant_data["price"])):
+        _bidding_price = int(_merchant_data["price"])
+        _add(_account, _merchant_id)
+        emit('bidUpdateResult', {
+            "type": "update", 
+            "msg": "winner", 
+            "payload": {
+                "bidding_price": _bidding_price,
+                "merchant_id": _merchant_id,
+                "winner": _account,
+                "merchant_name": _merchant_name
+            }
+        }, broadcast=True)
+        up = {
+            "bidding_price": _bidding_price,
+            "winner_id": _account,
+            "hasBeenWon": True
+        }
+        _LOGGER.debug(f" \033[38;5;10m BID UPDATED --------> {up}")
+
+        MODEL.update(f, {"$set":up})
+        return
+
+    up = {
+        "bidding_price": _bidding_price,
+        "winner_id": _account,
+        "hasBeenWon": False
+    }
+    _LOGGER.debug(f" \033[38;5;10m BID UPDATED --------> {up}")
+
+    MODEL.update(f, {"$set":up})
+
+    emit('bidUpdateResult', {
+        "type": "update", 
+        "msg": "update", 
+        "payload": {
+            "bidding_price": _bidding_price,
+            "merchant_id": _merchant_id
+        }
+    }, broadcast=True)
