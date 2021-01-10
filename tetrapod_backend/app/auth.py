@@ -175,7 +175,7 @@ def _register():
         "browsing_history": [],
         "cart": [],
         "notifications": [],
-        "star": 0,
+        "star": {"star": 0, "count": 0},
         "knockroom": []
     }
 

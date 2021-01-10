@@ -63,7 +63,8 @@ def _upload_merchant(*args,**kwargs):
         "bidding_endtime": _bidding_endtime,
         "account": _account,
         "status": _status,
-        "winner_id": ""
+        "winner_id": "",
+        "star": []
     }
     MODEL = merchant.Merchant()
     MODEL.new(form)
@@ -72,7 +73,7 @@ def _upload_merchant(*args,**kwargs):
 
 @app.route(f"{MODULE_PREFIX}/delete_merchant", methods=["POST"])
 @account.Account.validate
-def _delete_merchant():
+def _delete_merchant(*args,**kwargs):
     data = request.get_json()
     _merchant_id = data.get("merchant_id", "")
     Err = ""
