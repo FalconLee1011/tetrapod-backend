@@ -14,7 +14,10 @@ class Account:
         _LOGGER.info("getting account... ")
         _LOGGER.info(f"{doc}")
         user = self.model.find_one(doc, mProject=_proj)
-        del user["_id"]
+        try: 
+            del user["_id"]
+        except: 
+            _LOGGER.warning("User not found!")   
         _LOGGER.info(user)
         return user
 
