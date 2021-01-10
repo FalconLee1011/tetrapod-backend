@@ -29,7 +29,10 @@ class Account:
             "account", 
             "market_discription"
         ])
-        del user["_id"]
+        try: 
+            del user["_id"]
+        except: 
+            _LOGGER.warning("User not found!")    
         _LOGGER.info(user)
         return user
 
