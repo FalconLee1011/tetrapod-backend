@@ -42,7 +42,9 @@ def main():
     global DEPLOY_APP
     app_host = CONF.get("app", {}).get("host", "127.0.0.1")
     app_port = CONF.get("app", {}).get("port", 9000)
-    DEPLOY_APP.run(host=app_host, port=app_port)
+    multi_threaded = CONF.get("app", {}).get("multi_threaded", False)
+    
+    DEPLOY_APP.run(host=app_host, port=app_port, threaded=multi_threaded)
 
 if __name__ == "__main__":
     main()

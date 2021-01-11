@@ -6,6 +6,7 @@ db:
   db:  
   debug: true
   timeout: 20000
+  multi_threaded: false
 
 app:
   host: "0.0.0.0"
