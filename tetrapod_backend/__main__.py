@@ -44,7 +44,8 @@ def main():
     app_port = CONF.get("app", {}).get("port", 9000)
     multi_threaded = CONF.get("app", {}).get("multi_threaded", False)
     
-    DEPLOY_APP.run(host=app_host, port=app_port, threaded=multi_threaded)
+    # DEPLOY_APP.run(host=app_host, port=app_port, threaded=multi_threaded)
+    DEPLOY_APP.run(host=app_host, port=app_port)
 
 if __name__ == "__main__":
     main()

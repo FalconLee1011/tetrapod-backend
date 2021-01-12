@@ -1,1 +1,1 @@
-from tetrapod_backend.__main__ import DEPLOY_APP
+from tetrapod_backend import *
