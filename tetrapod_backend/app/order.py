@@ -191,7 +191,7 @@ def _star(*args,**kwargs):
     _order_star = float(_rq.get("order", -1))
     #update merchant star
     for data in _merchants:
-        MODEL.update({"_id": ObjectId(data["merchantID"])}, {"$push": {"star":{"star": data["star"], "comments": data["comments"]}}})
+        MODEL.update({"_id": ObjectId(data["merchantID"])}, {"$push": {"star":{"star": data["star"], "comments": data["comments"], "uploader": _account}}})
 
     #update seller star
     _seller = MODEL.getOne({"_id": ObjectId(_merchants[0]["merchantID"])})["account"]
