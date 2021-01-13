@@ -103,7 +103,7 @@ def _edit_account(*args,**kwargs):
         "market_description": _description
     }
     account_req = account_MODEL.update({"account":kwargs["account"]},{"$set":user})
-    return make_response(jsonify({"status": "OK"},200)
+    return make_response(jsonify({"status": "OK"},200))
 
 @app.route(f"{MODULE_PREFIX}/register",methods=["POST"])
 def _register():
