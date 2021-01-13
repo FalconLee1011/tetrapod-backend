@@ -30,7 +30,7 @@ class Account:
             "last_name", 
             "nick_name", 
             "account", 
-            "market_description"
+            "market_description", 
             "star"
         ])
         try: 
