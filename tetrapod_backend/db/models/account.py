@@ -31,6 +31,7 @@ class Account:
             "nick_name", 
             "account", 
             "market_description"
+            "star"
         ])
         try: 
             del user["_id"]
