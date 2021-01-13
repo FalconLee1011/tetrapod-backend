@@ -83,11 +83,11 @@ def _edit_account(*args,**kwargs):
         return make_response(jsonify({"status": Err}), 200)
 
     #phone check
-    pattern = r"^09\d{8}$"
-    match = _is_match(_phone, pattern)
-    if not match:
-        Err = "phone format error"
-        return make_response(jsonify({"status": Err}), 200)
+    # pattern = r"^09\d{8}$"
+    # match = _is_match(_phone, pattern)
+    # if not match:
+    #     Err = "phone format error"
+    #     return make_response(jsonify({"status": Err}), 200)
 
     #make json
     user = {
@@ -103,7 +103,7 @@ def _edit_account(*args,**kwargs):
         "market_description": _description
     }
     account_req = account_MODEL.update({"account":kwargs["account"]},{"$set":user})
-    return make_response(jsonify("edit account success"),200)
+    return make_response(jsonify({"status": "OK"},200)
 
 @app.route(f"{MODULE_PREFIX}/register",methods=["POST"])
 def _register():
