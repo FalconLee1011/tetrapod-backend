@@ -484,3 +484,23 @@ def _tests(data):
             "merchant_id": _merchant_id
         }
     }, broadcast=True)
+
+    _biddingStuff = account.Account().get( {'account':_account}, _proj=["biddingStuff"]).get("biddingStuff")
+    if(_biddingStuff):
+        _biddingStuff = set(_biddingStuff)
+    else:
+        _biddingStuff = set()
+    _biddingStuff.add(_merchant_id)
+    _LOGGER.debug("-------updating-------")
+    _LOGGER.debug("-------updating-------")
+    _LOGGER.debug("-------updating-------")
+    _LOGGER.debug("-------updating-------")
+    _LOGGER.debug(_biddingStuff)
+    _LOGGER.debug("-------updating-------")
+    _LOGGER.debug("-------updating-------")
+    _LOGGER.debug("-------updating-------")
+    _LOGGER.debug("-------updating-------")
+    account.Account().update(
+        { "account": _account }, 
+        { "$set": { "biddingStuff": list(_biddingStuff) } }
+    )
