@@ -30,11 +30,20 @@ class Notification:
         _LOGGER.info(res)
         return list(map(self._map, res))
 
-    def new(self,user,doc):
+    # def new(self,user,doc):
+    def new(self, doc):
         _LOGGER.info("inserting... ")
         _LOGGER.info(f"{doc}")
-        res = self.model.update_one(user, {"$set": doc})
-        # res = self.model.insert_one(doc)
+        # res = self.model.update_one(user, {"$set": doc})
+        res = self.model.insert_one(doc)
+        _LOGGER.info(res)
+        return 0
+        # return str(res.documentIds[0])
+
+    def redact(self, _id, doc):
+        _LOGGER.info("redacting... ")
+        _LOGGER.info(f"{doc}")
+        res = self.model.update_one({"_id": _id}, {"$set": doc})
         _LOGGER.info(res)
         return 0
         # return str(res.documentIds[0])
